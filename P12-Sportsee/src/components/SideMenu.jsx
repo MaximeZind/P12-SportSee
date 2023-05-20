@@ -7,7 +7,7 @@ import workoutIcon from "../assets/workout.png";
 function SideMenu() {
     return (
         <div className="sidemenu">
-            <div className="sidemenu_spaceholder"></div>
+            {/* <div className="sidemenu_spaceholder"></div> */}
             <div className="sidemenu_buttons">
                 <a href="#">
                     <img className="sidemenu_buttons-icon" src={yogaIcon}></img>
@@ -22,7 +22,9 @@ function SideMenu() {
                     <img className="sidemenu_buttons-icon" src={workoutIcon}></img>
                 </a>
             </div>
-            <p className="sidemenu_copyright">Copyright, SportSee 2020</p>
+            <div className="sidemenu_copyright">
+                <p>Copyright, SportSee 2020</p>
+            </div>
         </div>
     );
 }

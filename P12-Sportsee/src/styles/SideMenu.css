@@ -3,23 +3,23 @@
 
 .sidemenu{
     background-color: var(--primary-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     width: 117px;
-    gap: 150px;
     height: calc(100vh - 91px);
 }
 
 .sidemenu_buttons{
+    position: absolute;
+    top: 200px;
+    margin-left: 26px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
 
-.sidemenu_copyright{
+.sidemenu_copyright p{
+    position: absolute;
+    bottom: 120px;
     font-size: 0.75rem;
     color: var(--secondary-color);
     transform: rotate(-90deg);
