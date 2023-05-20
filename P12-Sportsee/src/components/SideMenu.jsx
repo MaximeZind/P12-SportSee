@@ -22,7 +22,7 @@ function SideMenu() {
                     <img className="sidemenu_buttons-icon" src={workoutIcon}></img>
                 </a>
             </div>
-            <p className="sidemenu_copyright">Copiryght, SportSee 2020</p>
+            <p className="sidemenu_copyright">Copyright, SportSee 2020</p>
         </div>
     );
 }
