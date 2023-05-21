@@ -15,7 +15,10 @@ function Greetings(props) {
 
     return (
         <div className='greetings'>
-            {data && <h2 className='greetings_title'>Bonjour {data.data.userInfos.firstName}</h2>}
+            <div className='greetings_title'>
+                <h2 className='greetings_title-bonjour'>Bonjour </h2>
+                {data && <h2 className='greetings_title-name'>{data.data.userInfos.firstName}</h2>}
+            </div>
             {data && <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>}
         </div>
     )

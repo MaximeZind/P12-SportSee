@@ -1,0 +1,30 @@
+@import './colors.css';
+@import './fonts.css';
+
+.greetings{
+    display: flex;
+    flex-direction: column;
+    gap: 41px;
+    margin-bottom: 6.64vh;
+}
+
+.greetings_title{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 10px;
+}
+
+.greetings_title h2{
+    font-size: 3rem;
+    font-family: 'Roboto';
+}
+
+.greetings_title-name{
+    color: var(--tertiary-color);
+}
+
+.greetings p{
+    font-size: 1.125rem;
+    font-family: 'Roboto';
+}
