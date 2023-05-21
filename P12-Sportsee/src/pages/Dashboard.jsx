@@ -4,6 +4,7 @@ import Greetings from '../components/Greetings';
 import DailyActivity from '../components/DailyActivity';
 import '../styles/Dashboard.css'
 import AverageSessionTime from '../components/AverageSessionTime';
+import Performances from '../components/Performances';
 
 function Dashboard() {
 
@@ -25,6 +26,7 @@ function Dashboard() {
       <section className='dashboard_graphs'>
         < DailyActivity id={userId} />
         < AverageSessionTime id={userId} />
+        < Performances id={userId}/>
         <div className='dashboard_graphs-info_cards'>
 
         </div>

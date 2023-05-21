@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     width: calc(100% - 117px);
-    padding-left: 107px;
-    padding-top: 72px;
+    padding-left: 7.643vw;
+    padding-top: 7.03125vh;
 }
 
 .dashboard_graphs{
