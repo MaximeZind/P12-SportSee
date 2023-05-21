@@ -15,7 +15,6 @@ function ProteinsCard(props) {
     }, []);
     let proteinCount = 0;
     if(data){
-        console.log(data.data.keyData);
         proteinCount = data.data.keyData.proteinCount;
     }
     return (

@@ -14,7 +14,6 @@ function LipidsCard(props) {
             .catch(error => console.error(error));
     }, []);
     let lipidCount = 0;
-    data && console.log(data);
     if(data){
         lipidCount = data.data.keyData.lipidCount;
     }
