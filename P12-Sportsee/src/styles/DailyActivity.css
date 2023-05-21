@@ -4,6 +4,12 @@
 .daily_activity-chart{
     background-color: #FBFBFB;
     padding: 32px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .daily_activity-chart_header{

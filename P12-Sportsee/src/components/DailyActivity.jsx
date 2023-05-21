@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import '../styles/DailyActivity.css'
 
 function DailyActivity(props) {
@@ -49,15 +49,17 @@ function DailyActivity(props) {
                     <p className='calories'>Calories brûlées (kCal)</p>
                 </div>
             </header>
-            <BarChart width={730} height={250} data={sessions} >
-                <CartesianGrid strokeDasharray="2 2" />
-                <XAxis />
-                <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' />
-                <YAxis yAxisId="right" hide='true' />
-                <Tooltip contentStyle={tooltipStyle} labelStyle={labelStyle} itemStyle={tooltipStyle} />
-                <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='kg' />
-                <Bar yAxisId="right" dataKey="calories" fill="#E60000" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='Kcal'/>
-            </BarChart>
+            <ResponsiveContainer width='100%' height='90%'>
+                <BarChart data={sessions} >
+                    <CartesianGrid strokeDasharray="2 2" />
+                    <XAxis />
+                    <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' />
+                    <YAxis yAxisId="right" hide='true' />
+                    <Tooltip contentStyle={tooltipStyle} labelStyle={labelStyle} itemStyle={tooltipStyle} />
+                    <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='kg' />
+                    <Bar yAxisId="right" dataKey="calories" fill="#E60000" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='Kcal' />
+                </BarChart>
+            </ResponsiveContainer>
         </div>
     )
 }

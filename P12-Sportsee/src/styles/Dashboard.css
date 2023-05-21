@@ -1,4 +1,14 @@
 .dashboard{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: calc(100% - 117px);
+    padding-left: 107px;
+    padding-top: 72px;
+}
+
+.dashboard_graphs{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 33.29864724245577vh 26.847034339229968vh;
+    gap: 30px;
 }

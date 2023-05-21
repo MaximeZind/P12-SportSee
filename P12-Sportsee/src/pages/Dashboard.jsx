@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Greetings from '../components/Greetings';
 import DailyActivity from '../components/DailyActivity';
 import '../styles/Dashboard.css'
 
@@ -19,8 +20,12 @@ function Dashboard() {
 
   return (
     <div className='dashboard'>
+      < Greetings id={userId} />
       <section className='dashboard_graphs'>
         < DailyActivity id={userId} />
+        <div className='dashboard_graphs-info_cards'>
+          
+        </div>
       </section>
     </div>
   )
