@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import SideMenu from '../components/SideMenu';
 import DailyActivity from '../components/DailyActivity';
 import '../styles/Dashboard.css'
 
@@ -10,19 +9,20 @@ function Dashboard() {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/user/${userId}`)
+    fetch(`http://localhost:3000/user/${userId}/average-sessions`)
       .then(response => response.json())
       .then(json => setData(json))
       .catch(error => console.error(error));
   }, []);
 
+  data && console.log(data);
+
   return (
-    <main className='dashboard'>
-      < SideMenu />
+    <div className='dashboard'>
       <section className='dashboard_graphs'>
         < DailyActivity id={userId} />
       </section>
-    </main>
+    </div>
   )
 }
 
