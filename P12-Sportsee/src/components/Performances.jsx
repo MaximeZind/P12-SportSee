@@ -13,8 +13,6 @@ function Performances(props) {
             .then(json => setData(json))
             .catch(error => console.error(error));
     }, []);
-
-    data && console.log(data.data.kind);
     let newArray = [];
     if(data){
         newArray = data.data.data.map((obj) => ({
@@ -25,7 +23,6 @@ function Performances(props) {
         newArray = newArray.sort((a, b) => {
             return kindsOrder.indexOf(a.kind) - kindsOrder.indexOf(b.kind);
           });
-        console.log(newArray);
     }
 
     return (

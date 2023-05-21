@@ -18,6 +18,7 @@
 .greetings_title h2{
     font-size: 3rem;
     font-family: 'Roboto';
+    font-weight: var(--medium);
 }
 
 .greetings_title-name{

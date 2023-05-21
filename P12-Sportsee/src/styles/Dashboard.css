@@ -3,7 +3,7 @@
     flex-direction: column;
     width: calc(100% - 117px);
     padding-left: 7.643vw;
-    padding-top: 7.03125vh;
+    padding-top: 2vh;
 }
 
 .dashboard_graphs{
@@ -11,4 +11,13 @@
     grid-template-columns: 18.43vw 18.43vw 18.43vw 18.43vw;
     grid-template-rows: 33.29864724245577vh 26.847034339229968vh;
     gap: 1.5625vw;
+}
+
+.dashboard_graphs-info_cards{
+    grid-column-start: 4;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
