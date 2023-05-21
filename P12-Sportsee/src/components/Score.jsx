@@ -24,7 +24,6 @@ function Score(props) {
         } else if (data.data.todayScore){
             score = data.data.todayScore;
         }
-        console.log(score)
         scoreData = {
             "name": "Score",
             "value": score
