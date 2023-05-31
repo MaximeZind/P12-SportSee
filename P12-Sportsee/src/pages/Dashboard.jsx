@@ -17,12 +17,12 @@ function Dashboard() {
 
   return (
     <div className={classes.dashboard}>
-      < Greetings id={userId} />
+      < Greetings userId={userId} />
       <section className={classes.dashboard_graphs}>
-        < DailyActivity id={userId} />
-        < AverageSessionTime id={userId} />
-        < Performances id={userId}/>
-        < Score id={userId}/>
+        < DailyActivity userId={userId} />
+        < AverageSessionTime userId={userId} />
+        < Performances userId={userId}/>
+        < Score userId={userId}/>
         < KeyDataCardsContainer userId={userId} />
       </section>
     </div>

@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area } from 'recharts';
 import classes from '../styles/AverageSessionTime.module.css'
 
-function AverageSessionTime(props) {
+function AverageSessionTime({userId}) {
 
-    const userId = props.id;
     const [data, setData] = useState(null);
 
-    useEffect(() => {
         fetch(`http://localhost:3000/user/${userId}/average-sessions`)
             .then(response => response.json())
             .then(json => setData(json))
             .catch(error => console.error(error));
-    }, []);
 
     const sessions = data?.data?.sessions;
 

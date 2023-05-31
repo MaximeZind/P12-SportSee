@@ -1,18 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import classes from '../styles/DailyActivity.module.css'
 
-function DailyActivity(props) {
+function DailyActivity({userId}) {
 
-    const userId = props.id;
     const [data, setData] = useState(null);
 
-    useEffect(() => {
         fetch(`http://localhost:3000/user/${userId}/activity`)
             .then(response => response.json())
             .then(json => setData(json))
             .catch(error => console.error(error));
-    }, []);
+
 
     const sessions = data?.data?.sessions;
     let smallestWeight = 0;

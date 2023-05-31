@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { RadarChart, Radar, ResponsiveContainer, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+import React, { useState } from 'react';
+import { RadarChart, Radar, ResponsiveContainer, PolarGrid, PolarAngleAxis } from 'recharts';
 import classes from '../styles/Performances.module.css'
 
-function Performances(props) {
+function Performances({userId}) {
 
-    const userId = props.id;
     const [data, setData] = useState(null);
 
-    useEffect(() => {
         fetch(`http://localhost:3000/user/${userId}/performance`)
             .then(response => response.json())
             .then(json => setData(json))
             .catch(error => console.error(error));
-    }, []);
     let newArray = [];
     if(data){
         newArray = data.data.data.map((obj) => ({

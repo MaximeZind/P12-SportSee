@@ -2,17 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
 import classes from '../styles/Score.module.css'
 
-function Score(props) {
+function Score({userId}) {
 
-    const userId = props.id;
     const [data, setData] = useState(null);
 
-    useEffect(() => {
         fetch(`http://localhost:3000/user/${userId}`)
             .then(response => response.json())
             .then(json => setData(json))
             .catch(error => console.error(error));
-    }, []);
 
     let scoreData = {};
     let leftToDo = {};
