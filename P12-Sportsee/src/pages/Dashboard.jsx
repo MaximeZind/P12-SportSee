@@ -6,10 +6,11 @@ import AverageSessionTime from '../components/AverageSessionTime';
 import Performances from '../components/Performances';
 import Score from '../components/Score';
 import classes from '../styles/Dashboard.module.css'
-import CaloriesCard from '../components/CaloriesCard';
-import ProteinsCard from '../components/ProteinsCard';
-import CarbohydratesCard from '../components/CarbohydratesCard';
-import LipidsCard from '../components/LipidsCard';
+// import CaloriesCard from '../components/CaloriesCard';
+// import ProteinsCard from '../components/ProteinsCard';
+// import CarbohydratesCard from '../components/CarbohydratesCard';
+// import LipidsCard from '../components/LipidsCard';
+import KeyDataCardsContainer from '../components/KeyDataCardsContainer';
 
 
 function Dashboard() {
@@ -24,12 +25,13 @@ function Dashboard() {
         < AverageSessionTime id={userId} />
         < Performances id={userId}/>
         < Score id={userId}/>
-        <div className={classes.dashboard_graphs_info_cards}>
+        < KeyDataCardsContainer userId={userId} />
+        {/* <div className={classes.dashboard_graphs_info_cards}>
           <CaloriesCard id={userId}/>
           <ProteinsCard id={userId}/>
           <CarbohydratesCard id={userId}/>
           <LipidsCard id={userId}/>
-        </div>
+        </div> */}
       </section>
     </div>
   )
