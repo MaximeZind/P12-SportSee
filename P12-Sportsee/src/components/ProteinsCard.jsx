@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import chickenIcon from '../assets/chicken.svg';
-import '../styles/KeyDataCard.css'
+import classes from '../styles/KeyDataCard.module.css'
 
 function ProteinsCard(props) {
 
@@ -18,11 +18,11 @@ function ProteinsCard(props) {
         proteinCount = data.data.keyData.proteinCount;
     }
     return (
-        <div className='keydata_card'>
-            <div className='keydata_card-icon proteins_box'>
+        <div className={classes.keydata_card}>
+            <div className={`${classes.keydata_card_icon} ${classes.proteins_box}`}>
                 <img src={chickenIcon} alt="proteines"></img>
             </div>
-            <div className='keydata_card-text_content'>
+            <div className={classes.keydata_card_text_content}>
                 <strong>{proteinCount}g</strong>
                 <p>Proteines</p>
             </div>

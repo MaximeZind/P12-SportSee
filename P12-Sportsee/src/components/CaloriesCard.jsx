@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import energyIcon from '../assets/energy.svg';
-import '../styles/KeyDataCard.css'
+import classes from '../styles/KeyDataCard.module.css'
 
 function CaloriesCard(props) {
 
@@ -18,11 +18,11 @@ function CaloriesCard(props) {
         calorieCount = data.data.keyData.calorieCount;
     }
     return (
-        <div className='keydata_card'>
-            <div className='keydata_card-icon calories_box'>
+        <div className={classes.keydata_card}>
+            <div className={`${classes.keydata_card_icon} ${classes.calories_box}`}>
                 <img src={energyIcon} alt="calories"></img>
             </div>
-            <div className='keydata_card-text_content'>
+            <div className={classes.keydata_card_text_content}>
                 <strong>{calorieCount}kCal</strong>
                 <p>Calories</p>
             </div>

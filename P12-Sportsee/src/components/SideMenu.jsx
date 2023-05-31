@@ -1,4 +1,4 @@
-import "../styles/SideMenu.css";
+import classes from "../styles/SideMenu.module.css";
 import yogaIcon from "../assets/yoga.png";
 import swimmingIcon from "../assets/swimming.png";
 import cyclingIcon from "../assets/cycling.png";
@@ -6,23 +6,22 @@ import workoutIcon from "../assets/workout.png";
 
 function SideMenu() {
     return (
-        <div className="sidemenu">
-            {/* <div className="sidemenu_spaceholder"></div> */}
-            <div className="sidemenu_buttons">
+        <div className={classes.sidemenu}>
+            <div className={classes.sidemenu_buttons}>
                 <a href="#">
-                    <img className="sidemenu_buttons-icon" src={yogaIcon}></img>
+                    <img className={classes.sidemenu_buttons_icon} src={yogaIcon}></img>
                 </a>
                 <a href="#">
-                    <img className="sidemenu_buttons-icon" src={swimmingIcon}></img>
+                    <img className={classes.sidemenu_buttons_icon} src={swimmingIcon}></img>
                 </a>
                 <a href="#">
-                    <img className="sidemenu_buttons-icon" src={cyclingIcon}></img>
+                    <img className={classes.sidemenu_buttons_icon} src={cyclingIcon}></img>
                 </a>
                 <a href="#">
-                    <img className="sidemenu_buttons-icon" src={workoutIcon}></img>
+                    <img className={classes.sidemenu_buttons_icon} src={workoutIcon}></img>
                 </a>
             </div>
-            <div className="sidemenu_copyright">
+            <div className={classes.sidemenu_copyright}>
                 <p>Copyright, SportSee 2020</p>
             </div>
         </div>

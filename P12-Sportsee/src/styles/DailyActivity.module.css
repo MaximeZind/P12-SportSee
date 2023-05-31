@@ -1,7 +1,7 @@
 @import './colors.css';
 @import './fonts.css';
 
-.daily_activity-chart{
+.daily_activity_chart{
     background-color: #FBFBFB;
     padding: 32px;
     grid-column-start: 1;
@@ -12,7 +12,7 @@
     flex-direction: column;
 }
 
-.daily_activity-chart_header{
+.daily_activity_chart_header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -20,21 +20,21 @@
     padding-bottom: 32px;
 }
 
-.daily_activity-chart_header h2{
+.daily_activity_chart_header h2{
     font-family: 'Roboto';
     color: #20253A;
     font-weight: var(--medium);
     font-size: 0.938rem;
 }
 
-.daily_activity-chart_header_legend{
+.daily_activity_chart_header_legend{
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 52px;
 }
 
-.daily_activity-chart_header_legend p{
+.daily_activity_chart_header_legend p{
     font-family: 'Roboto';
     color: #74798C;
     font-weight: var(--medium);

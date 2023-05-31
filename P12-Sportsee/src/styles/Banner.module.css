@@ -19,7 +19,7 @@
     padding-left: 28px;
 }
 
-.banner_logo-pic{
+.banner_logo_pic{
     width: 57px;
     height: 57px;
 }
@@ -34,13 +34,13 @@
     width: 80%;
 }
 
-.banner_nav-links{
+.banner_nav_links{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.banner_nav-links li a, .banner_nav-links li a:hover, .banner_nav-links li a:active, .banner_nav-links li a:visited{
+.banner_nav_links li a, .banner_nav_links li a:hover, .banner_nav_links li a:active, .banner_nav_links li a:visited{
     font-size: 1.5rem;
     color: var(--secondary-color);
     font-weight: var(--medium);

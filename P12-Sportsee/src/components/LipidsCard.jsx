@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import cheeseburgerIcon from '../assets/cheeseburger.svg';
-import '../styles/KeyDataCard.css'
+import classes from '../styles/KeyDataCard.module.css'
 
 function LipidsCard(props) {
 
@@ -18,11 +18,11 @@ function LipidsCard(props) {
         lipidCount = data.data.keyData.lipidCount;
     }
     return (
-        <div className='keydata_card'>
-            <div className='keydata_card-icon lipid_box'>
+        <div className={classes.keydata_card}>
+            <div className={`${classes.keydata_card_icon} ${classes.lipid_box}`}>
                 <img src={cheeseburgerIcon} alt="lipides"></img>
             </div>
-            <div className='keydata_card-text_content'>
+            <div className={classes.keydata_card_text_content}>
                 <strong>{lipidCount}g</strong>
                 <p>Lipides</p>
             </div>

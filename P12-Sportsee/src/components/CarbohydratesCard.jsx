@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import appleIcon from '../assets/apple.svg';
-import '../styles/KeyDataCard.css'
+import classes from '../styles/KeyDataCard.module.css'
 
 function CarbohydratesCard(props) {
 
@@ -18,11 +18,11 @@ function CarbohydratesCard(props) {
         carbohydrateCount = data.data.keyData.carbohydrateCount;
     }
     return (
-        <div className='keydata_card'>
-            <div className='keydata_card-icon carbohydrate_box'>
+        <div className={classes.keydata_card}>
+            <div className={`${classes.keydata_card_icon} ${classes.carbohydrate_box}`}>
                 <img src={appleIcon} alt="glucides"></img>
             </div>
-            <div className='keydata_card-text_content'>
+            <div className={classes.keydata_card_text_content}>
                 <strong>{carbohydrateCount}g</strong>
                 <p>Glucides</p>
             </div>

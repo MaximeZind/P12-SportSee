@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RadarChart, Radar, ResponsiveContainer, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
-import '../styles/Performances.css'
+import classes from '../styles/Performances.module.css'
 
 function Performances(props) {
 
@@ -26,7 +26,7 @@ function Performances(props) {
     }
 
     return (
-        <div className='performances-chart'>
+        <div className={classes.performances_chart}>
             <ResponsiveContainer width='100%' height='100%'>
                 <RadarChart outerRadius='70%' data={newArray} style={{ backgroundColor: '#282D30' }} >
                 <PolarAngleAxis dataKey="kind" angleAxisId={0} tick={{ fontSize: 10, color: '#FFF' }}/>

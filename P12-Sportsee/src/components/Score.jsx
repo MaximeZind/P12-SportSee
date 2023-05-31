@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
-import '../styles/Score.css'
+import classes from '../styles/Score.module.css'
 
 function Score(props) {
 
@@ -43,16 +43,16 @@ function Score(props) {
     }]
 
     return (
-        <div className='score-chart'>
-            <p className='piechart_title'>Score</p>
-            <div className='piechart_legend'>
+        <div className={classes.score_chart}>
+            <p className={classes.piechart_title}>Score</p>
+            <div className={classes.piechart_legend}>
                 <strong>{100 * score + '%'}</strong>
                 <p>de votre objectif</p>
             </div>
-            <ResponsiveContainer className="piechart" width='100%' height='100%'>
+            <ResponsiveContainer className={classes.piechart} width='100%' height='100%'>
                 <PieChart backgroundColor='#FBFBFB'>
                     <Pie data={chartData} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={70} outerRadius={80} fill="#FF0000" startAngle={220} endAngle={-140} />
-                    <Pie data={innerCircle} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={0} outerRadius={70} fill="#FFF" />
+                    <Pie data={innerCircle} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={0} outerRadius={70} fill="#FFFFFF" />
                 </PieChart>
             </ResponsiveContainer>
         </div>

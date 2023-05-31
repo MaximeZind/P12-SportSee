@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
-import '../styles/DailyActivity.css'
+import classes from '../styles/DailyActivity.module.css'
 
 function DailyActivity(props) {
 
@@ -41,10 +41,10 @@ function DailyActivity(props) {
     }
 
     return (
-        <div className='daily_activity-chart'>
-            <header className='daily_activity-chart_header'>
+        <div className={classes.daily_activity_chart}>
+            <header className={classes.daily_activity_chart_header}>
                 <h2>Activité quotidienne</h2>
-                <div className='daily_activity-chart_header_legend'>
+                <div className={classes.daily_activity_chart_header_legend}>
                     <p className='weight'>Poids (kg)</p>
                     <p className='calories'>Calories brûlées (kCal)</p>
                 </div>

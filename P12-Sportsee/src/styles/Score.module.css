@@ -2,7 +2,7 @@
 @import './colors.css';
 
 
-.score-chart{
+.score_chart{
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 2;
@@ -13,9 +13,9 @@
     grid-template-rows: 100%;
 }
 
-.recharts-sector[name="Remaining"]{
+path[name='Remaining'] {
     display: none;
-}
+  }
 
 .piechart_legend{
     grid-column-start: 1;

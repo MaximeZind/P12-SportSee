@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area } from 'recharts';
-import '../styles/AverageSessionTime.css'
+import classes from '../styles/AverageSessionTime.module.css'
 
 function AverageSessionTime(props) {
 
@@ -26,7 +26,7 @@ function AverageSessionTime(props) {
     };
 
     return (
-        <div className='average_session_time-chart'>
+        <div className={classes.average_session_time_chart}>
             <ResponsiveContainer width='100%' height='100%'>
                 <AreaChart data={sessions} style={{ backgroundColor: '#FF0000', }} >
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{fill: '#FFF', opacity: '50%'}} axisLine='false' tickLine='false' />
