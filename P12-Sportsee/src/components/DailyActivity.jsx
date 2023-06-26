@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import classes from '../styles/DailyActivity.module.css'
+import getUserActivity from '../utils/getUserActivity';
 
 function DailyActivity({userId}) {
 
-    const [data, setData] = useState(null);
-
-        fetch(`http://localhost:3000/user/${userId}/activity`)
-            .then(response => response.json())
-            .then(json => setData(json))
-            .catch(error => console.error(error));
-
+    const data = getUserActivity(userId);
 
     const sessions = data?.data?.sessions;
     let smallestWeight = 0;

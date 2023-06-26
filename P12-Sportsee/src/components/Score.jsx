@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
 import classes from '../styles/Score.module.css'
+import getUser from '../utils/getUser';
 
 function Score({userId}) {
 
-    const [data, setData] = useState(null);
 
-        fetch(`http://localhost:3000/user/${userId}`)
-            .then(response => response.json())
-            .then(json => setData(json))
-            .catch(error => console.error(error));
-
+    const data = getUser(userId);
     let scoreData = {};
     let leftToDo = {};
     let chartData = [];

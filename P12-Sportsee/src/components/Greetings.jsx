@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classes from '../styles/Greetings.module.css'
+import getUser from '../utils/getUser';
 
 function Greetings({userId}) {
 
-    const [data, setData] = useState(null);
-
-        fetch(`http://localhost:3000/user/${userId}`)
-            .then(response => response.json())
-            .then(json => setData(json))
-            .catch(error => console.error(error));
+    const data = getUser(userId);
 
     return (
         <div className={classes.greetings}>
