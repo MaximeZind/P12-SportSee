@@ -3,7 +3,7 @@ import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, Responsive
 import classes from '../styles/DailyActivity.module.css'
 import getUserActivity from '../utils/getUserActivity';
 
-function DailyActivity({userId}) {
+function DailyActivity({ userId }) {
 
     const data = getUserActivity(userId);
 
@@ -26,8 +26,23 @@ function DailyActivity({userId}) {
     const tooltipStyle = {
         backgroundColor: '#E60000',
         color: '#fff',
-        border: 'none'
+        border: 'none',
+        padding: '10px',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
     };
+
+    const customTooltip = ({ active, payload }) => {
+        if (active && payload) {
+            return (
+                <div className="custom-tooltip" style={tooltipStyle}>
+                    <p className="poids">{`${payload[0].value}kg`}</p>
+                    <p className="calories">{`${payload[1].value}Kcal`}</p>
+                </div>
+            );
+        }
+    }
 
     const labelStyle = {
         display: "none"
@@ -38,8 +53,8 @@ function DailyActivity({userId}) {
             <header className={classes.daily_activity_chart_header}>
                 <h2>Activité quotidienne</h2>
                 <div className={classes.daily_activity_chart_header_legend}>
-                    <p className='weight'>Poids (kg)</p>
-                    <p className='calories'>Calories brûlées (kCal)</p>
+                    <p className={classes.weight}>Poids (kg)</p>
+                    <p className={classes.calories}>Calories brûlées (kCal)</p>
                 </div>
             </header>
             <ResponsiveContainer width='100%' height='90%'>
@@ -48,7 +63,7 @@ function DailyActivity({userId}) {
                     <XAxis />
                     <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' />
                     <YAxis yAxisId="right" hide='true' />
-                    <Tooltip contentStyle={tooltipStyle} labelStyle={labelStyle} itemStyle={tooltipStyle} />
+                    <Tooltip content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
                     <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='kg' />
                     <Bar yAxisId="right" dataKey="calories" fill="#E60000" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='Kcal' />
                 </BarChart>
