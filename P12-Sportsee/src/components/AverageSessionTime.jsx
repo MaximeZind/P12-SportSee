@@ -43,7 +43,7 @@ function AverageSessionTime({userId}) {
             <ResponsiveContainer width='100%' height='100%'>
                 <AreaChart data={sessions} style={{ backgroundColor: '#FF0000', }} >
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{fill: '#FFF', opacity: '50%'}} axisLine={false} tickLine={false} />
-                    <Tooltip content={customTooltip} itemStyle={{color: '#000'}} labelStyle={{display: 'none'}}/>
+                    <Tooltip content={customTooltip} cursor={{strokeOpacity:'0'}}/>
                     <Legend iconSize={0}  verticalAlign="top" formatter={renderLegendText}/>
                     < Area type='monotone' dataKey='sessionLength' stroke='#FFF' unit=' min' fill='#FFF' fillOpacity={0.05} ></Area>
                 </AreaChart >
