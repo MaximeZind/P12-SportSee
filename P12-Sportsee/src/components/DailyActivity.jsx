@@ -7,18 +7,24 @@ function DailyActivity({ userId }) {
 
     const data = getUserActivity(userId);
 
-    const sessions = data?.data?.sessions;
+    let sessions = data?.data?.sessions;
     let smallestWeight = 0;
     let biggestWeight = 0;
+    let days = [];
     if (data) {
         smallestWeight = sessions[0].kilogram;
         sessions.map((session) => {
+            days.push(session.day[session.day.length-1]);
             if (session.kilogram < smallestWeight) {
                 smallestWeight = session.kilogram;
             }
             if (session.kilogram > biggestWeight) {
                 biggestWeight = session.kilogram;
             }
+        });
+        sessions = sessions.map((session) => {
+            session.day = session.day[session.day.length-1];
+            return session;
         });
     }
     const weightDomain = [smallestWeight - 1, biggestWeight + 1];
@@ -58,7 +64,7 @@ function DailyActivity({ userId }) {
             <ResponsiveContainer width='100%' height='90%'>
                 <BarChart data={sessions} >
                     <CartesianGrid strokeDasharray="2 2" vertical={false}/>
-                    <XAxis tickLine={false} axisLine={false} />
+                    <XAxis dataKey='day' tickLine={false} axisLine={false} />
                     <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' tickLine={false} axisLine={false} />
                     <YAxis yAxisId="right" hide={true}/>
                     <Tooltip cursor={{opacity:'0.5'}} content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
