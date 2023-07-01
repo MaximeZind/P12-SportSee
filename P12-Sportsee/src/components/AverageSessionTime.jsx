@@ -15,7 +15,7 @@ function AverageSessionTime({userId}) {
     };
 
     const renderLegendText = () => {
-        return <p className='legend'>Durée des sessions moyennes</p>;
+        return <p className='legend' style={{textAlign:'left', marginLeft:'20px', opacity:'0.5'}}>Durée des sessions moyennes</p>;
     };
 
     
@@ -44,7 +44,7 @@ function AverageSessionTime({userId}) {
                 <AreaChart data={sessions} style={{ backgroundColor: '#FF0000', }} >
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{fill: '#FFF', opacity: '50%'}} axisLine={false} tickLine={false} />
                     <Tooltip content={customTooltip} itemStyle={{color: '#000'}} labelStyle={{display: 'none'}}/>
-                    <Legend verticalAlign="top" formatter={renderLegendText}/>
+                    <Legend iconSize={0}  verticalAlign="top" formatter={renderLegendText}/>
                     < Area type='monotone' dataKey='sessionLength' stroke='#FFF' unit=' min' fill='#FFF' fillOpacity={0.05} ></Area>
                 </AreaChart >
             </ResponsiveContainer>
