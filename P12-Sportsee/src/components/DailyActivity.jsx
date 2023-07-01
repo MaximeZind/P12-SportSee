@@ -27,6 +27,7 @@ function DailyActivity({ userId }) {
         backgroundColor: '#E60000',
         color: '#fff',
         border: 'none',
+        fontSize: '0.625rem',
         padding: '10px'
     };
 
