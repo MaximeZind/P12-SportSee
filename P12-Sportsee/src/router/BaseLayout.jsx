@@ -1,6 +1,6 @@
 import React from 'react';
-import Banner from './Banner.jsx'
-import SideMenu from './SideMenu.jsx';
+import Banner from '../components/Banner';
+import SideMenu from '../components/SideMenu';
 import {Outlet} from "react-router-dom";
 
 function BaseLayout() {
