@@ -27,18 +27,15 @@ function DailyActivity({ userId }) {
         backgroundColor: '#E60000',
         color: '#fff',
         border: 'none',
-        padding: '10px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center'
+        padding: '10px'
     };
 
     const customTooltip = ({ active, payload }) => {
         if (active && payload) {
             return (
-                <div className="custom-tooltip" style={tooltipStyle}>
-                    <p className="poids">{`${payload[0].value}kg`}</p>
-                    <p className="calories">{`${payload[1].value}Kcal`}</p>
+                <div className={classes.custom_tooltip} style={tooltipStyle}>
+                    <p style={{marginBottom: '30px'}}>{`${payload[0].value}kg`}</p>
+                    <p>{`${payload[1].value}Kcal`}</p>
                 </div>
             );
         }
