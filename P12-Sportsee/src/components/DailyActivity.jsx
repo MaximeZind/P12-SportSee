@@ -57,11 +57,11 @@ function DailyActivity({ userId }) {
             </header>
             <ResponsiveContainer width='100%' height='90%'>
                 <BarChart data={sessions} >
-                    <CartesianGrid strokeDasharray="2 2" />
-                    <XAxis />
-                    <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' />
-                    <YAxis yAxisId="right" hide='true' />
-                    <Tooltip content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
+                    <CartesianGrid strokeDasharray="2 2" vertical={false}/>
+                    <XAxis tickLine={false} axisLine={false} />
+                    <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' tickLine={false} axisLine={false} />
+                    <YAxis yAxisId="right" hide={true}/>
+                    <Tooltip cursor={{opacity:'0.5'}} content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
                     <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='kg' />
                     <Bar yAxisId="right" dataKey="calories" fill="#E60000" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='Kcal' />
                 </BarChart>
