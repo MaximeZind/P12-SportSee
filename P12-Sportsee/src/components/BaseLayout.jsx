@@ -1,17 +1,18 @@
 import React from 'react';
 import Banner from './Banner.jsx'
 import SideMenu from './SideMenu.jsx';
+import {Outlet} from "react-router-dom";
 
-function BaseLayout({children}) {
+function BaseLayout() {
 
     return (
-        <React.Fragment>
+        <>
             <Banner />
             <main>
                 <SideMenu />
-                {children}
+                < Outlet />
             </main>
-        </React.Fragment>
+        </>
     );
 }
 

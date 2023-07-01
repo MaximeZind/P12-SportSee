@@ -7,13 +7,13 @@ function App() {
 
     return (
         <React.Fragment>
-            <BaseLayout>
-                <BrowserRouter>
-                    <Routes>
+            <BrowserRouter>
+                <Routes>
+                    <Route path='/' element={<BaseLayout />} >
                         <Route path="/dashboard/:id" element={<Dashboard />} />
-                    </Routes>
-                </BrowserRouter>
-            </BaseLayout>
+                    </Route>
+                </Routes>
+            </BrowserRouter>
         </React.Fragment>
     )
 }
