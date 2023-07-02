@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function getUser(id) {
+export default function GetUser(id) {
 
     const [data, setData] = useState(null);
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function getUserAverageSessions(id) {
+export default function GetUserAverageSessions(id) {
 
     const [data, setData] = useState(null);
 

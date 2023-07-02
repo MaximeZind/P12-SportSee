@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function getUserActivity(id) {
+export default function GetUserActivity(id) {
 
     const [data, setData] = useState(null);
 

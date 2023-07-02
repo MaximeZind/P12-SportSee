@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function getUserPerformance(id) {
+export default function GetUserPerformance(id) {
 
     const [data, setData] = useState(null);
 
