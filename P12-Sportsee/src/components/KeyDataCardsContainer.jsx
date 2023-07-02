@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import energyIcon from '../assets/energy.svg';
 import chickenIcon from '../assets/chicken.svg';
 import appleIcon from '../assets/apple.svg';
@@ -29,6 +30,10 @@ function KeyDataCardsContainer({ userId }) {
             <KeyDataCard count={lipidCount} unit="g" type="Lipides" color="rgba(253, 81, 129, 0.066)" icon={cheeseburgerIcon} />
         </div>
     )
+}
+
+KeyDataCardsContainer.prototypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default KeyDataCardsContainer;

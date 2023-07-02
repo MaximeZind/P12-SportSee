@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area } from 'recharts';
 import classes from '../styles/AverageSessionTime.module.css'
 import getUserAverageSessions from '../utils/getUserAverageSessions';
@@ -50,6 +51,9 @@ function AverageSessionTime({userId}) {
             </ResponsiveContainer>
         </div>
     );
+}
+AverageSessionTime.prototypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default AverageSessionTime;

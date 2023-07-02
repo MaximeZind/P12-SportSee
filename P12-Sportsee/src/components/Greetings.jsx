@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from '../styles/Greetings.module.css'
 import getUser from '../utils/getUser';
 
@@ -15,6 +16,10 @@ function Greetings({userId}) {
             {data && <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>}
         </div>
     )
+}
+
+Greetings.prototypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default Greetings;

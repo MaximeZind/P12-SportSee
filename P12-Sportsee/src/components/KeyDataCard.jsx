@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classes from '../styles/KeyDataCard.module.css'
 
 function KeyDataCard({count, unit, type, color, icon}) {
@@ -13,6 +14,14 @@ function KeyDataCard({count, unit, type, color, icon}) {
             </div>
         </div>
     )
+}
+
+KeyDataCard.prototypes = {
+    count: PropTypes.string.isRequired,
+    unit: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
 }
 
 export default KeyDataCard;

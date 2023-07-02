@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import classes from '../styles/DailyActivity.module.css'
 import getUserActivity from '../utils/getUserActivity';
@@ -72,6 +73,10 @@ function DailyActivity({ userId }) {
             </ResponsiveContainer>
         </div>
     )
+}
+
+DailyActivity.prototypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default DailyActivity;

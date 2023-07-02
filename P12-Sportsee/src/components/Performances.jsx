@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { RadarChart, Radar, ResponsiveContainer, PolarGrid, PolarAngleAxis } from 'recharts';
 import classes from '../styles/Performances.module.css'
 import getUserPerformance from '../utils/getUserPerformance';
@@ -29,6 +30,10 @@ function Performances({userId}) {
             </ResponsiveContainer>
         </div>
     );
+}
+
+Performances.prototypes = {
+    userId: PropTypes.string.isRequired
 }
 
 export default Performances;
