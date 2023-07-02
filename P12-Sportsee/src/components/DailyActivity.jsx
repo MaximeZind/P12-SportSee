@@ -21,7 +21,7 @@ function DailyActivity({ userId }) {
             }
         });
         sessions = sessions.map((session) => {
-            session.day = `${session.day[session.day.length-2]+session.day[session.day.length-1]}`;
+            session.day = session.day.length > 1 ? parseInt(session.day[session.day.length-2]+session.day[session.day.length-1]) : session.day;
             return session;
         });
     }
