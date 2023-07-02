@@ -10,11 +10,9 @@ function DailyActivity({ userId }) {
     let sessions = data?.data?.sessions;
     let smallestWeight = 0;
     let biggestWeight = 0;
-    let days = [];
     if (data) {
         smallestWeight = sessions[0].kilogram;
         sessions.map((session) => {
-            days.push(session.day[session.day.length-1]);
             if (session.kilogram < smallestWeight) {
                 smallestWeight = session.kilogram;
             }
@@ -23,7 +21,7 @@ function DailyActivity({ userId }) {
             }
         });
         sessions = sessions.map((session) => {
-            session.day = session.day[session.day.length-1];
+            session.day = `${session.day[session.day.length-2]+session.day[session.day.length-1]}`;
             return session;
         });
     }
