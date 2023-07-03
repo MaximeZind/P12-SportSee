@@ -13,7 +13,7 @@ function Form() {
 
     return (
         <form method="post" className={classes.form} onSubmit={handleSubmit}>
-            <p>
+            <p className={classes.form_radiobuttons} >
                 Source des données:
                 <label>
                     <input type="radio" name="api" value='true' defaultChecked={true}/>
@@ -24,7 +24,7 @@ function Form() {
                     Mocked Data
                 </label>
             </p>
-            <p>
+            <p className={classes.form_radiobuttons}>
                 ID de l'utilisateur:
                 <label>
                     <input type="radio" name="user" value="12" defaultChecked={true}/>
@@ -35,7 +35,7 @@ function Form() {
                     18
                 </label>
             </p>
-            <button>C'est parti</button>
+            <button className={classes.form_submitbutton}>C'est parti</button>
         </form>
     );
 }

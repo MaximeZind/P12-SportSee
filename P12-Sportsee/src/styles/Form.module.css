@@ -1,0 +1,33 @@
+.form{
+    color: #FFFFFF;
+    padding: 30px;
+    border-radius: 5px;
+    border: 2px solid #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input [type=radio] {
+    background-color: red;
+}
+
+.form_radiobuttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.form_submitbutton{
+    background-color: var(--tertiary-color);
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background-color 0.3s;
+}
+
+.form_submitbutton:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+}

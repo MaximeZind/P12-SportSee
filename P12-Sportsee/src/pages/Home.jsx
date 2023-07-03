@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from '../styles/Dashboard.module.css'
+import classes from '../styles/Home.module.css'
 import Form from '../components/Form';
 import logo from '../assets/SportSee.png';
 
@@ -12,11 +12,13 @@ function Home() {
 
     return (
         <main className={classes.home}>
-            <div className={classes.home_logo}>
-                <img src={logo} alt="Sportsee Logo"></img>
-                <h1>SportSee</h1>
-            </div>
-            <Form />
+            <section className={classes.home_section}>
+                <div className={classes.home_logo}>
+                    <img src={logo} alt="Sportsee Logo"></img>
+                    <h1>SportSee</h1>
+                </div>
+                <Form />
+            </section>
         </main>
     )
 }
