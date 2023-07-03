@@ -23,6 +23,7 @@
 }
 
 .home_logo h1{
-    color: #FFFFFF;
+    color: var(--tertiary-color);
     font-size: 30px;
+    font-weight: normal;
 }

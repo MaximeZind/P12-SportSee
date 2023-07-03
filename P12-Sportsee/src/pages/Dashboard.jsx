@@ -15,14 +15,18 @@ import GetUserPerformance from '../utils/getUserPerformance';
 
 function Dashboard() {
 
+  //récupération de l'id et de la source des datas
   const {id, api } = useParams();
   const isApiTrue = (api === 'true');
 
+  //Appel des données utilitaires pour la récupération des datas, avec comme paramètres l'id de l'utilisateur
+  //et "isApitrue", booléen, pour définir d'où vient la data (api ou mocked data)
   const user = GetUser(id, isApiTrue);
   const userActivity = GetUserActivity(id, isApiTrue);
   const userAverageSessions = GetUserAverageSessions(id, isApiTrue);
   const userPerformance = GetUserPerformance(id, isApiTrue);
 
+  //titre de la page
   const pageTitle = 'Dashboard';
   document.title = `SportSee - ${pageTitle}`;
 
