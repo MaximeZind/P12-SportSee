@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import classes from '../styles/DailyActivity.module.css'
-import getUserActivity from '../utils/getUserActivity';
 
-function DailyActivity({ userId }) {
-
-    const data = getUserActivity(userId);
+function DailyActivity({ data }) {
 
     let sessions = data?.data?.sessions;
     let smallestWeight = 0;
@@ -76,7 +73,7 @@ function DailyActivity({ userId }) {
 }
 
 DailyActivity.prototypes = {
-    userId: PropTypes.string.isRequired
+    data: PropTypes.object.isRequired
 }
 
 export default DailyActivity;

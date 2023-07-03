@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { RadarChart, Radar, ResponsiveContainer, PolarGrid, PolarAngleAxis } from 'recharts';
 import classes from '../styles/Performances.module.css'
-import getUserPerformance from '../utils/getUserPerformance';
 
-function Performances({userId}) {
+function Performances({data}) {
 
-    const data = getUserPerformance(userId);
     let newArray = [];
     if(data){
         newArray = data.data.data.map((obj) => ({
@@ -33,7 +31,7 @@ function Performances({userId}) {
 }
 
 Performances.prototypes = {
-    userId: PropTypes.string.isRequired
+    data: PropTypes.object.isRequired
 }
 
 export default Performances;

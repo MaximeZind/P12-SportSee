@@ -2,12 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
 import classes from '../styles/Score.module.css'
-import getUser from '../utils/getUser';
 
-function Score({userId}) {
+function Score({data}) {
 
-
-    const data = getUser(userId);
     let scoreData = {};
     let leftToDo = {};
     let chartData = [];
@@ -54,7 +51,7 @@ function Score({userId}) {
 }
 
 Score.prototypes = {
-    userId: PropTypes.string.isRequired
+    data: PropTypes.object.isRequired
 }
 
 export default Score;

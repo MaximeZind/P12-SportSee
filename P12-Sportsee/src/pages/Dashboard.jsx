@@ -7,25 +7,34 @@ import Performances from '../components/Performances';
 import Score from '../components/Score';
 import classes from '../styles/Dashboard.module.css'
 import KeyDataCardsContainer from '../components/KeyDataCardsContainer';
+import GetUser from '../utils/getUser';
+import GetUserActivity from '../utils/getUserActivity';
+import GetUserAverageSessions from '../utils/getUserAverageSessions';
+import GetUserPerformance from '../utils/getUserPerformance';
 
 
 function Dashboard() {
 
   const {id, api } = useParams();
-  console.log(id);
-  console.log(api);
+  const isApiTrue = (api === 'true');
+
+  const user = GetUser(id, isApiTrue);
+  const userActivity = GetUserActivity(id, isApiTrue);
+  const userAverageSessions = GetUserAverageSessions(id, isApiTrue);
+  const userPerformance = GetUserPerformance(id, isApiTrue);
+
   const pageTitle = 'Dashboard';
   document.title = `SportSee - ${pageTitle}`;
 
   return (
     <div className={classes.dashboard}>
-      < Greetings userId={id} api={api === 'true'}/>
+      < Greetings data={user} />
       <section className={classes.dashboard_graphs} >
-        < DailyActivity userId={id} api={api === 'true'}/>
-        < AverageSessionTime userId={id} api={api === 'true'}/>
-        < Performances userId={id} api={api === 'true'}/>
-        < Score userId={id} api={api === 'true'}/>
-        < KeyDataCardsContainer userId={id} api={api === 'true'}/>
+        < DailyActivity data={userActivity}/>
+        < AverageSessionTime data={userAverageSessions} />
+        < Performances data={userPerformance} />
+        < Score data={user} />
+        < KeyDataCardsContainer data={user} />
       </section>
     </div>
   )

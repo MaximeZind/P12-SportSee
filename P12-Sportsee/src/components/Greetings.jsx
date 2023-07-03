@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classes from '../styles/Greetings.module.css'
-import GetUser from '../utils/getUser';
 
-function Greetings({ userId }) {
-    const data = GetUser(userId);
+function Greetings({ data }) {
     return (
         <div className={classes.greetings}>
             <div className={classes.greetings_title}>
@@ -17,7 +15,7 @@ function Greetings({ userId }) {
 }
 
 Greetings.prototypes = {
-    userId: PropTypes.string.isRequired
+    data: PropTypes.object.isRequired
 }
 
 export default Greetings;

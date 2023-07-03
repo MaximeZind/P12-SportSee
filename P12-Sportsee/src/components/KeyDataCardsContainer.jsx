@@ -6,11 +6,8 @@ import appleIcon from '../assets/apple.svg';
 import cheeseburgerIcon from '../assets/cheeseburger.svg';
 import classes from '../styles/KeyDataCardsContainer.module.css';
 import KeyDataCard from './KeyDataCard';
-import getUser from '../utils/getUser';
 
-function KeyDataCardsContainer({ userId }) {
-
-    const data = getUser(userId);
+function KeyDataCardsContainer({ data}) {
 
     let carbohydrateCount = 0;
     let calorieCount = 0;
@@ -33,7 +30,7 @@ function KeyDataCardsContainer({ userId }) {
 }
 
 KeyDataCardsContainer.prototypes = {
-    userId: PropTypes.string.isRequired
+    data: PropTypes.object.isRequired
 }
 
 export default KeyDataCardsContainer;
