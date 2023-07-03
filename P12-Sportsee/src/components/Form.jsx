@@ -8,7 +8,6 @@ function Form() {
         const form = event.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
-        console.log(formJson);
         return navigate(`/dashboard/${formJson.user}/${formJson.api}`);
     }
 
@@ -17,7 +16,7 @@ function Form() {
             <p>
                 Source des données:
                 <label>
-                    <input type="radio" name="api" value='true' />
+                    <input type="radio" name="api" value='true' defaultChecked={true}/>
                     API
                 </label>
                 <label>
@@ -28,7 +27,7 @@ function Form() {
             <p>
                 ID de l'utilisateur:
                 <label>
-                    <input type="radio" name="user" value="12" />
+                    <input type="radio" name="user" value="12" defaultChecked={true}/>
                     12
                 </label>
                 <label>
