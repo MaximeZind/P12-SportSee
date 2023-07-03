@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classes from '../styles/Greetings.module.css'
-import getUser from '../utils/getUser';
+import GetUser from '../utils/getUser';
 
-function Greetings({userId}) {
-
-    const data = getUser(userId);
-
+function Greetings({ userId }) {
+    const data = GetUser(userId);
     return (
         <div className={classes.greetings}>
             <div className={classes.greetings_title}>

@@ -11,19 +11,21 @@ import KeyDataCardsContainer from '../components/KeyDataCardsContainer';
 
 function Dashboard() {
 
-  const userId = useParams().id;
+  const {id, api } = useParams();
+  console.log(id);
+  console.log(api);
   const pageTitle = 'Dashboard';
   document.title = `SportSee - ${pageTitle}`;
 
   return (
     <div className={classes.dashboard}>
-      < Greetings userId={userId} />
-      <section className={classes.dashboard_graphs}>
-        < DailyActivity userId={userId} />
-        < AverageSessionTime userId={userId} />
-        < Performances userId={userId}/>
-        < Score userId={userId}/>
-        < KeyDataCardsContainer userId={userId} />
+      < Greetings userId={id} api={api === 'true'}/>
+      <section className={classes.dashboard_graphs} >
+        < DailyActivity userId={id} api={api === 'true'}/>
+        < AverageSessionTime userId={id} api={api === 'true'}/>
+        < Performances userId={id} api={api === 'true'}/>
+        < Score userId={id} api={api === 'true'}/>
+        < KeyDataCardsContainer userId={id} api={api === 'true'}/>
       </section>
     </div>
   )
