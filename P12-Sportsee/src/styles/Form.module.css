@@ -1,14 +1,17 @@
 .form{
+    background-color: rgba(255, 255, 255, 0.2);
     color: #FFFFFF;
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 2px solid #FFFFFF;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
-input [type=radio] {
+.form_radiobuttons input [type='radio'] {
+    -webkit-appearance: none;
+    appearance: none;
     background-color: red;
 }
 
