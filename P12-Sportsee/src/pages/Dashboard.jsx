@@ -7,10 +7,10 @@ import Performances from '../components/Performances';
 import Score from '../components/Score';
 import classes from '../styles/Dashboard.module.css'
 import KeyDataCardsContainer from '../components/KeyDataCardsContainer';
-import GetUser from '../utils/getUser';
-import GetUserActivity from '../utils/getUserActivity';
-import GetUserAverageSessions from '../utils/getUserAverageSessions';
-import GetUserPerformance from '../utils/getUserPerformance';
+import GetUser from '../service/getUser';
+import GetUserActivity from '../service/getUserActivity';
+import GetUserAverageSessions from '../service/getUserAverageSessions';
+import GetUserPerformance from '../service/getUserPerformance';
 
 
 function Dashboard() {
