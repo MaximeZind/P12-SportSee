@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area } from 'recharts';
+import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area, YAxis } from 'recharts';
 import classes from '../styles/AverageSessionTime.module.css'
 
 function AverageSessionTime({data}) {
@@ -13,7 +13,7 @@ function AverageSessionTime({data}) {
     };
 
     const renderLegendText = () => {
-        return <p className='legend' style={{textAlign:'left', marginLeft:'20px', opacity:'0.5'}}>Durée des sessions moyennes</p>;
+        return <p className='legend' style={{textAlign:'left', marginLeft:'20px', opacity:'0.5'}}>Durée moyenne des sessions</p>;
     };
 
     
@@ -43,7 +43,7 @@ function AverageSessionTime({data}) {
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{fill: '#FFF', opacity: '50%'}} axisLine={false} tickLine={false} />
                     <Tooltip content={customTooltip} cursor={{strokeOpacity:'0'}}/>
                     <Legend iconSize={0}  verticalAlign="top" formatter={renderLegendText}/>
-                    < Area type='monotone' dataKey='sessionLength' stroke='#FFF' unit=' min' fill='#FFF' fillOpacity={0.05} ></Area>
+                    <Area type='natural' dataKey='sessionLength' stroke='#FFF' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
                 </AreaChart >
             </ResponsiveContainer>
         </div>
