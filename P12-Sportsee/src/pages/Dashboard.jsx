@@ -1,10 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Greetings from '../components/Greetings';
-import DailyActivity from '../components/DailyActivity';
-import AverageSessionTime from '../components/AverageSessionTime';
-import Performances from '../components/Performances';
-import Score from '../components/Score';
+import DailyActivity from '../components/graphs/DailyActivity';
+import AverageSessionTime from '../components/graphs/AverageSessionTime';
+import Performances from '../components/graphs/Performances';
+import Score from '../components/graphs/Score';
 import classes from '../styles/Dashboard.module.css'
 import KeyDataCardsContainer from '../components/KeyDataCardsContainer';
 import GetUser from '../service/getUser';

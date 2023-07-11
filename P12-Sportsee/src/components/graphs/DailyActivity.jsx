@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
-import classes from '../styles/DailyActivity.module.css'
+import classes from '/src/styles/DailyActivity.module.css'
 
 function DailyActivity({ data }) {
 

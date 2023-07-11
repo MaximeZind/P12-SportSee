@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
-import classes from '../styles/Score.module.css'
+import classes from '/src/styles/Score.module.css'
 
 function Score({data}) {
 

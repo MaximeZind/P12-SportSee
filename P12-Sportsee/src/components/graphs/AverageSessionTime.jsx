@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area, YAxis } from 'recharts';
-import classes from '../styles/AverageSessionTime.module.css'
+import classes from '/src/styles/AverageSessionTime.module.css';
 
 function AverageSessionTime({data}) {
 
