@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function GetUserActivity(id, isApiTrue) {
+export default function GetUserActivity(id) {
 
-    
+    const isApiTrue = localStorage.getItem("isApiTrue");
     const [data, setData] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
             // const [data, setData] = useState(null);
             // Make a request for a user with a given ID
-            if (isApiTrue) {
+            if (isApiTrue === 'true') {
                 axios.get(`http://localhost:3000/user/${id}/activity`)
                     .then(function (response) {
                         // handle success
@@ -23,7 +23,7 @@ export default function GetUserActivity(id, isApiTrue) {
                     .finally(function () {
                         // always executed
                     });
-            } else if (!isApiTrue) {
+            } else if (isApiTrue === 'false') {
 
                 axios.get(`/src/mockedData/users/${id}/userActivity.json`)
                     .then(function (response) {

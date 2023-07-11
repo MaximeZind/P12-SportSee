@@ -10,7 +10,12 @@ function Form() {
         const form = event.target;
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
-        return navigate(`/dashboard/${formJson.user}/${formJson.api}`);
+        if (formJson.api === 'true'){
+            localStorage.setItem("isApiTrue", true);
+        } else if (formJson.api === 'false'){
+            localStorage.setItem("isApiTrue", false);
+        }
+        return navigate(`/dashboard/${formJson.user}/`);
     }
 
     return (

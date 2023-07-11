@@ -15,16 +15,15 @@ import GetUserPerformance from '../service/getUserPerformance';
 
 function Dashboard() {
 
-  //récupération de l'id et de la source des datas
-  const {id, api } = useParams();
-  const isApiTrue = (api === 'true');
+  //récupération de l'id de l'url
+  const {id} = useParams();
 
   //Appel des données utilitaires pour la récupération des datas, avec comme paramètres l'id de l'utilisateur
   //et "isApitrue", booléen, pour définir d'où vient la data (api ou mocked data)
-  const user = GetUser(id, isApiTrue);
-  const userActivity = GetUserActivity(id, isApiTrue);
-  const userAverageSessions = GetUserAverageSessions(id, isApiTrue);
-  const userPerformance = GetUserPerformance(id, isApiTrue);
+  const user = GetUser(id);
+  const userActivity = GetUserActivity(id);
+  const userAverageSessions = GetUserAverageSessions(id);
+  const userPerformance = GetUserPerformance(id);
 
   //titre de la page
   const pageTitle = 'Dashboard';
