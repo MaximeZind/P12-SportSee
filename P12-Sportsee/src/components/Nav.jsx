@@ -2,7 +2,7 @@ import logo from "../assets/Sportsee.png";
 import classes from "../styles/Banner.module.css";
 import { NavLink } from "react-router-dom";
 
-function Banner() {
+function Nav() {
     return (
         <header className={classes.banner}>
             <NavLink to="/">
@@ -23,4 +23,4 @@ function Banner() {
     );
 }
 
-export default Banner;
+export default Nav;

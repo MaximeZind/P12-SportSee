@@ -1,5 +1,5 @@
 import React from 'react';
-import Banner from '../components/Banner';
+import Nav from '../components/Nav';
 import SideMenu from '../components/SideMenu';
 import {Outlet} from "react-router-dom";
 
@@ -7,7 +7,7 @@ function BaseLayout() {
 
     return (
         <>
-            <Banner />
+            <Nav />
             <main>
                 <SideMenu />
                 < Outlet />
