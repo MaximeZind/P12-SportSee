@@ -1,25 +1,44 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function GetUserAverageSessions(id, isApiTrue) {
-
+ 
     const [data, setData] = useState(null);
 
     useEffect(() => {
         async function fetchData() {
-
+            // const [data, setData] = useState(null);
+            // Make a request for a user with a given ID
             if (isApiTrue) {
-                fetch(`http://localhost:3000/user/${id}/average-sessions`)
-                .then(response => response.json())
-                .then(json => setData(json))
-                .catch(error => console.error(error));
+                axios.get(`http://localhost:3000/user/${id}/average-sessions`)
+                    .then(function (response) {
+                        // handle success
+                        setData(response.data)
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
             } else if (!isApiTrue) {
-                fetch(`/src/mockedData/users/${id}/userAverageSessions.json`)
-                .then(response => response.json())
-                .then(json => setData(json))
-                .catch(error => console.error(error));
+
+                axios.get(`/src/mockedData/users/${id}/userAverageSessions.json`)
+                    .then(function (response) {
+                        // handle success
+                        setData(response.data)
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
             }
         }
-        fetchData()
+        fetchData();
     }, [id, isApiTrue]);
 
     return data;
