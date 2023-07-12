@@ -1,7 +1,7 @@
 @import './fonts.css';
 @import './colors.css';
 
-.banner{
+.nav{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -10,11 +10,11 @@
     height: 91px;
 }
 
-.banner a{
+.nav a{
     text-decoration: none;
 }
 
-.banner_logo{
+.nav_logo{
     width: 20%;
     display: flex;
     flex-direction: row;
@@ -23,30 +23,29 @@
     padding-left: 28px;
 }
 
-.banner_logo_pic{
+.nav_logo_pic{
     width: 57px;
     height: 57px;
 }
 
-.banner_logo h1{
+.nav_logo h1{
     font-size: 1.5rem;
     font-weight: var(--regular);
     color: var(--quarternary-color);
 }
 
-.banner_nav{
+.nav_menu{
     width: 80%;
 }
 
-.banner_nav_links{
+.nav_menu_links{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 
-.banner_nav_links li a, .banner_nav_links li a:hover, .banner_nav_links li a:active, .banner_nav_links li a:visited{
+.nav_menu_links li a, .nav_nav_links li a:hover, .nav_menu_links li a:active, .nav_menu_links li a:visited{
     font-size: 1.5rem;
     color: var(--secondary-color);
     font-weight: var(--medium);
-    text-decoration: none;
 }
