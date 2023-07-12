@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area, YAxis } from 'recharts';
 import classes from '/src/styles/AverageSessionTime.module.css';
 
-function AverageSessionTime({data}) {
-
-    const sessions = data?.data?.sessions;
+function AverageSessionTime({sessions}) {
 
     const xAxisTickFormatter = (value) => {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
@@ -50,7 +48,7 @@ function AverageSessionTime({data}) {
     );
 }
 AverageSessionTime.prototypes = {
-    data: PropTypes.object.isRequired
+    sessions: PropTypes.array.isRequired
 }
 
 export default AverageSessionTime;

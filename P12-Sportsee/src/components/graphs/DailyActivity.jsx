@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import classes from '/src/styles/DailyActivity.module.css'
 
-function DailyActivity({ data }) {
+function DailyActivity({ sessions }) {
 
-    let sessions = data?.data?.sessions;
     let smallestWeight = 0;
     let biggestWeight = 0;
-    if (data) {
+    if (sessions) {
         smallestWeight = sessions[0].kilogram;
         sessions.map((session) => {
             if (session.kilogram < smallestWeight) {
@@ -49,6 +48,7 @@ function DailyActivity({ data }) {
     }
 
     return (
+        sessions &&
         <div className={classes.daily_activity_chart}>
             <header className={classes.daily_activity_chart_header}>
                 <h2>Activité quotidienne</h2>
@@ -73,7 +73,7 @@ function DailyActivity({ data }) {
 }
 
 DailyActivity.prototypes = {
-    data: PropTypes.object.isRequired
+    sessions: PropTypes.array.isRequired
 }
 
 export default DailyActivity;

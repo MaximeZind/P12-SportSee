@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Greetings from '../components/Greetings';
 import DailyActivity from '../components/graphs/DailyActivity';
@@ -7,39 +8,38 @@ import Performances from '../components/graphs/Performances';
 import Score from '../components/graphs/Score';
 import classes from '../styles/Dashboard.module.css'
 import KeyDataCardsContainer from '../components/KeyDataCardsContainer';
-import GetUser from '../service/getUser';
-import GetUserActivity from '../service/getUserActivity';
-import GetUserAverageSessions from '../service/getUserAverageSessions';
-import GetUserPerformance from '../service/getUserPerformance';
-import GetUserModel from '../service/getUserModel';
+import getProfile from '../service/userRequest';
 
 
 function Dashboard() {
 
+  const [userModel, setUserModel] = useState(null);
   //récupération de l'id de l'url
   const {id} = useParams();
-
-  //Appel des données utilitaires pour la récupération des datas, avec comme paramètres l'id de l'utilisateur
-  //et "isApitrue", booléen, pour définir d'où vient la data (api ou mocked data)
-  const user = GetUser(id);
-  const userActivity = GetUserActivity(id);
-  const userAverageSessions = GetUserAverageSessions(id);
-  const userPerformance = GetUserPerformance(id);
-  GetUserModel(id);
-
+  
   //titre de la page
   const pageTitle = 'Dashboard';
   document.title = `SportSee - ${pageTitle}`;
 
+
+  // const userModel = getProfile(id)
+  useEffect(() => {
+    getProfile(id)
+    .then((model) => setUserModel(model))
+    .catch((err) => console.log(err));
+  }, [id]);
+
+
   return (
+    userModel &&
     <div className={classes.dashboard}>
-      < Greetings data={user} />
+      < Greetings firstName={userModel.firstName} />
       <section className={classes.dashboard_graphs} >
-        < DailyActivity data={userActivity}/>
-        < AverageSessionTime data={userAverageSessions} />
-        < Performances data={userPerformance} />
-        < Score data={user} />
-        < KeyDataCardsContainer data={user} />
+        < DailyActivity sessions={userModel.dailyActivity}/>
+        < AverageSessionTime sessions={userModel.sessionLength} />
+        < Performances performances={userModel.performances} />
+        < Score todayScore={userModel.score} />
+        < KeyDataCardsContainer calorieCount={userModel.calorieCount} proteinCount={userModel.proteinCount} carbohydrateCount={userModel.carbohydrateCount} lipidCount={userModel.lipidCount} />
       </section>
     </div>
   )

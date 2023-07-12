@@ -1,27 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { PieChart, Pie, ResponsiveContainer, Legend } from 'recharts';
+import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 import classes from '/src/styles/Score.module.css'
 
-function Score({data}) {
+function Score({todayScore}) {
 
     let scoreData = {};
     let leftToDo = {};
     let chartData = [];
-    let score = 0;
-    if (data) {
-        if(data.data.score){
-            score = data.data.score;
-        } else if (data.data.todayScore){
-            score = data.data.todayScore;
-        }
+    if (todayScore) {
         scoreData = {
             "name": "Score",
-            "value": score
+            "value": todayScore
         }
         leftToDo = {
             "name": "Remaining",
-            "value": 1 - score
+            "value": 1 - todayScore
         }
         chartData = [scoreData, leftToDo];
     }
@@ -37,7 +31,7 @@ function Score({data}) {
         <div className={classes.score_chart}>
             <p className={classes.piechart_title}>Score</p>
             <div className={classes.piechart_legend}>
-                <strong>{100 * score + '%'}</strong>
+                <strong>{100 * todayScore + '%'}</strong>
                 <p>de votre objectif</p>
             </div>
             <ResponsiveContainer className={classes.piechart} width='100%' height='100%'>
@@ -51,7 +45,7 @@ function Score({data}) {
 }
 
 Score.prototypes = {
-    data: PropTypes.object.isRequired
+    todayScore: PropTypes.number.isRequired
 }
 
 export default Score;

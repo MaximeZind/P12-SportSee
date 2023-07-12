@@ -7,18 +7,8 @@ import cheeseburgerIcon from '../assets/cheeseburger.svg';
 import classes from '../styles/KeyDataCardsContainer.module.css';
 import KeyDataCard from './KeyDataCard';
 
-function KeyDataCardsContainer({ data}) {
+function KeyDataCardsContainer({ calorieCount, proteinCount, carbohydrateCount, lipidCount, }) {
 
-    let carbohydrateCount = 0;
-    let calorieCount = 0;
-    let lipidCount = 0;
-    let proteinCount = 0;
-    if (data) {
-        carbohydrateCount = data.data.keyData.carbohydrateCount;
-        calorieCount = data.data.keyData.calorieCount;
-        lipidCount = data.data.keyData.lipidCount;
-        proteinCount = data.data.keyData.proteinCount;
-    }
     return (
         <div className={classes.dashboard_graphs_info_cards}>
             <KeyDataCard count={calorieCount} unit="kCal" type="Calories" color="rgba(255, 0, 0, 0.066)" icon={energyIcon} />
@@ -30,7 +20,10 @@ function KeyDataCardsContainer({ data}) {
 }
 
 KeyDataCardsContainer.prototypes = {
-    data: PropTypes.object.isRequired
+    calorieCount: PropTypes.number.isRequired,
+    proteinCount: PropTypes.number.isRequired,
+    carbohydrateCount: PropTypes.number.isRequired,
+    lipidCount: PropTypes.number.isRequired,
 }
 
 export default KeyDataCardsContainer;
