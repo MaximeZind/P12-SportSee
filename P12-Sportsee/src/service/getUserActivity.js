@@ -8,39 +8,29 @@ export default function GetUserActivity(id) {
 
     useEffect(() => {
         async function fetchData() {
-            // const [data, setData] = useState(null);
-            // Make a request for a user with a given ID
             if (isApiTrue === 'true') {
                 axios.get(`http://localhost:3000/user/${id}/activity`)
                     .then(function (response) {
-                        // handle success
                         setData(response.data)
                     })
                     .catch(function (error) {
-                        // handle error
                         console.log(error);
                     })
-                    .finally(function () {
-                        // always executed
-                    });
             } else if (isApiTrue === 'false') {
 
                 axios.get(`/src/mockedData/users/${id}/userActivity.json`)
                     .then(function (response) {
-                        // handle success
                         setData(response.data)
                     })
                     .catch(function (error) {
-                        // handle error
                         console.log(error);
                     })
-                    .finally(function () {
-                        // always executed
-                    });
             }
         }
         fetchData();
     }, [id, isApiTrue]);
 
-    return data;
+    if (data) {
+        return data
+    };
 }

@@ -11,6 +11,7 @@ import GetUser from '../service/getUser';
 import GetUserActivity from '../service/getUserActivity';
 import GetUserAverageSessions from '../service/getUserAverageSessions';
 import GetUserPerformance from '../service/getUserPerformance';
+import GetUserModel from '../service/getUserModel';
 
 
 function Dashboard() {
@@ -24,6 +25,7 @@ function Dashboard() {
   const userActivity = GetUserActivity(id);
   const userAverageSessions = GetUserAverageSessions(id);
   const userPerformance = GetUserPerformance(id);
+  GetUserModel(id);
 
   //titre de la page
   const pageTitle = 'Dashboard';
