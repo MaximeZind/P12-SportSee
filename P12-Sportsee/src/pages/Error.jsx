@@ -4,8 +4,6 @@ import classes from '../styles/Error.module.css'
 
 
 function Error() {
-
-
   let location = useLocation();
 
   //titre de la page
