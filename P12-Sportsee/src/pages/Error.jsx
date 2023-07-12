@@ -21,7 +21,6 @@ function Error() {
         <p>{errorText}</p>
         <Link to={'/'}><p>{linkText}</p></Link>
     </div> : <Navigate to={'/404'}/>
-    
   )
 }
 
