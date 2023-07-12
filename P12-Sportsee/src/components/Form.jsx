@@ -11,9 +11,9 @@ function Form() {
         const formData = new FormData(form);
         const formJson = Object.fromEntries(formData.entries());
         if (formJson.api === 'true'){
-            localStorage.setItem("isApiTrue", true);
+            localStorage.setItem("dataSrc", 'api');
         } else if (formJson.api === 'false'){
-            localStorage.setItem("isApiTrue", false);
+            localStorage.setItem("dataSrc", 'mockedData');
         }
         return navigate(`/dashboard/${formJson.user}/`);
     }

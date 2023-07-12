@@ -15,13 +15,15 @@ import user18Performance from '/src/mockedData/users/18/userPerformance.json';
 
 
 async function getUser(id) {
-    const isApiTrue = localStorage.getItem("isApiTrue");
-        if (isApiTrue === 'true') {
+   
+    const dataSrc = localStorage.getItem('dataSrc');
+
+        if (dataSrc === 'api') {
             const dataResponse = await axios.get(`http://localhost:3000/user/${id}`);
             if (dataResponse.status === 200) {
                 return dataResponse.data.data;
             }
-        } else if (isApiTrue === 'false') {
+        } else if (dataSrc === 'mockedData') {
             if(id === '12'){
                 return user12Infos.data;
             } else if(id === '18'){
@@ -32,14 +34,14 @@ async function getUser(id) {
 
 async function getUserActivity(id) {
 
-    const isApiTrue = localStorage.getItem("isApiTrue");
+    const dataSrc = localStorage.getItem('dataSrc');
 
-        if (isApiTrue === 'true') {
+        if (dataSrc === 'api') {
             const dataResponse = await axios.get(`http://localhost:3000/user/${id}/activity`);
             if (dataResponse.status === 200) {
                 return dataResponse.data.data;
             }
-        } else if (isApiTrue === 'false') {
+        } else if (dataSrc === 'mockedData') {
             if(id === '12'){
                 return user12Activity.data;
             } else if(id === '18'){
@@ -50,14 +52,14 @@ async function getUserActivity(id) {
 
 async function getUserAverageSessions(id) {
 
-    const isApiTrue = localStorage.getItem("isApiTrue");
+    const dataSrc = localStorage.getItem('dataSrc');
 
-        if (isApiTrue === 'true') {
+        if (dataSrc === 'api') {
             const dataResponse = await axios.get(`http://localhost:3000/user/${id}/average-sessions`);
             if (dataResponse.status === 200) {
                 return dataResponse.data.data;
             }
-        } else if (isApiTrue === 'false') {
+        } else if (dataSrc === 'mockedData') {
             if(id === '12'){
                 return user12AverageSessions.data;
             } else if(id === '18'){
@@ -68,14 +70,14 @@ async function getUserAverageSessions(id) {
 
 async function getUserPerformance(id) {
 
-    const isApiTrue = localStorage.getItem("isApiTrue");
+    const dataSrc = localStorage.getItem('dataSrc');
 
-        if (isApiTrue === 'true') {
+        if (dataSrc === 'api') {
             const dataResponse = await axios.get(`http://localhost:3000/user/${id}/performance`);
             if (dataResponse.status === 200) {
                 return dataResponse.data.data;
             }
-        } else if (isApiTrue === 'false') {
+        } else if (dataSrc === 'mockedData') {
             if(id === '12'){
                 return user12Performance.data;
             } else if(id === '18'){
