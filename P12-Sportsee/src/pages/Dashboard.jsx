@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import Greetings from '../components/Greetings';
 import DailyActivity from '../components/graphs/DailyActivity';
 import AverageSessionTime from '../components/graphs/AverageSessionTime';
@@ -29,6 +29,10 @@ function Dashboard() {
     .catch((err) => console.log(err));
   }, [id]);
 
+  //redirection vers la page d'erreur, si l'id ne correspond à aucun user
+  if(userModel === undefined){
+    return <Navigate to={'/404'} />
+  }
 
   return (
     userModel &&

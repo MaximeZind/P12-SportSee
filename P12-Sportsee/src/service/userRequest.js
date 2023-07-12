@@ -1,17 +1,32 @@
 import UserModel from './Model/UserModel';
 import axios from 'axios';
 
+//mocked data user 12
+import user12Infos from '/src/mockedData/users/12/userInfos.json';
+import user12AverageSessions from '/src/mockedData/users/12/userAverageSessions.json';
+import user12Activity from '/src/mockedData/users/12/userActivity.json';
+import user12Performance from '/src/mockedData/users/12/userPerformance.json';
+
+//mocked data user 18
+import user18Infos from '/src/mockedData/users/18/userInfos.json';
+import user18AverageSessions from '/src/mockedData/users/18/userAverageSessions.json';
+import user18Activity from '/src/mockedData/users/18/userActivity.json';
+import user18Performance from '/src/mockedData/users/18/userPerformance.json';
+
+
 async function getUser(id) {
-
     const isApiTrue = localStorage.getItem("isApiTrue");
-
         if (isApiTrue === 'true') {
             const dataResponse = await axios.get(`http://localhost:3000/user/${id}`);
             if (dataResponse.status === 200) {
                 return dataResponse.data.data;
             }
         } else if (isApiTrue === 'false') {
-
+            if(id === '12'){
+                return user12Infos.data;
+            } else if(id === '18'){
+                return user18Infos.data;
+            }
         }
 }
 
@@ -25,7 +40,11 @@ async function getUserActivity(id) {
                 return dataResponse.data.data;
             }
         } else if (isApiTrue === 'false') {
-
+            if(id === '12'){
+                return user12Activity.data;
+            } else if(id === '18'){
+                return user18Activity.data;
+            }
         }
 }
 
@@ -39,7 +58,11 @@ async function getUserAverageSessions(id) {
                 return dataResponse.data.data;
             }
         } else if (isApiTrue === 'false') {
-
+            if(id === '12'){
+                return user12AverageSessions.data;
+            } else if(id === '18'){
+                return user18AverageSessions.data;
+            }
         }
 }
 
@@ -53,7 +76,11 @@ async function getUserPerformance(id) {
                 return dataResponse.data.data;
             }
         } else if (isApiTrue === 'false') {
-
+            if(id === '12'){
+                return user12Performance.data;
+            } else if(id === '18'){
+                return user18Performance.data;
+            }
         }
 }
 
