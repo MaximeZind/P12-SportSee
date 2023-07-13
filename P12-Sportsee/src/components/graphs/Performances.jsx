@@ -25,7 +25,7 @@ function Performances({ performances }) {
 }
 
 Performances.prototypes = {
-    data: PropTypes.object.isRequired
+    performances: PropTypes.object.isRequired
 }
 
 export default Performances;

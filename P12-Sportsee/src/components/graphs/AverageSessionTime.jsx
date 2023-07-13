@@ -41,7 +41,7 @@ function AverageSessionTime({ sessions }) {
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{ fill: '#FFF', opacity: '50%' }} axisLine={false} tickLine={false} />
                     <Tooltip content={customTooltip} cursor={{ strokeOpacity: '0' }} />
                     <Legend iconSize={0} verticalAlign="top" formatter={renderLegendText} />
-                    <Area baseValue={1} type='natural' dataKey='sessionLength' stroke='url(#lineGradient)' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
+                    <Area type='natural' dataKey='sessionLength' stroke='url(#lineGradient)' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
                     <defs>
                         <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
                             <stop offset="0%" stopColor="#FFF" stopOpacity={0.4} />
