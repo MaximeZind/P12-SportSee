@@ -13,8 +13,6 @@ import classes from '/src/styles/Performances.module.css';
 
 function Performances({ performances }) {
 
-    console.log(performances);
-
     let sortedPerformances = [...performances];
     const kindsOrder = ['Intensité', 'Vitesse', 'Force', 'Endurance', 'Energie', 'Cardio'];
     sortedPerformances = sortedPerformances.sort((a, b) => {
