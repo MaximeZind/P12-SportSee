@@ -1,6 +1,12 @@
 import classes from "../styles/Form.module.css";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Le composant Form affiche un formulaire permettant à l'utilisateur de choisir la source des données (API ou données simulées) et l'ID de l'utilisateur.
+ * Une fois le formulaire soumis, il enregistre le choix de la source de données dans le stockage local (localStorage) et redirige vers la page de tableau de bord correspondante.
+ * @returns {JSX.Element} La représentation JSX du composant Form.
+ */
+
 function Form() {
     const navigate = useNavigate();
 

@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classes from '../styles/Greetings.module.css'
+import classes from '../styles/Greetings.module.css';
+
+/**
+ * Le composant Greetings affiche un message de salutation personnalisé et une félicitation si le prénom de l'utilisateur est fourni.
+ * @param {string} firstName - Le prénom de l'utilisateur.
+ * @returns {JSX.Element} La représentation JSX du composant Greetings.
+ */
 
 function Greetings({ firstName }) {
     return (
@@ -14,7 +20,7 @@ function Greetings({ firstName }) {
     )
 }
 
-Greetings.prototypes = {
+Greetings.proptypes = {
     firstName: PropTypes.string.isRequired
 }
 

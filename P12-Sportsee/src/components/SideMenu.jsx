@@ -4,6 +4,12 @@ import swimmingIcon from "../assets/swimming.png";
 import cyclingIcon from "../assets/cycling.png";
 import workoutIcon from "../assets/workout.png";
 
+/**
+ * Composant SideMenu - Affiche un menu latéral avec des boutons d'icônes pour différentes activités sportives et le copyright.
+ * @returns {JSX.Element} La représentation JSX du composant SideMenu.
+ */
+
+
 function SideMenu() {
     return (
         <div className={classes.sidemenu}>

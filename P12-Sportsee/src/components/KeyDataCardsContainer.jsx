@@ -7,6 +7,16 @@ import cheeseburgerIcon from '../assets/cheeseburger.svg';
 import classes from '../styles/KeyDataCardsContainer.module.css';
 import KeyDataCard from './KeyDataCard';
 
+/**
+ * Composant KeyDataCardsContainer - Affiche un conteneur pour les cartes de données clés.
+ * @param {number} calorieCount - Le nombre de calories à afficher.
+ * @param {number} proteinCount - Le nombre de protéines à afficher.
+ * @param {number} carbohydrateCount - Le nombre de glucides à afficher.
+ * @param {number} lipidCount - Le nombre de lipides à afficher.
+ * @returns {JSX.Element} La représentation JSX du composant KeyDataCardsContainer.
+ */
+
+
 function KeyDataCardsContainer({ calorieCount, proteinCount, carbohydrateCount, lipidCount, }) {
 
     return (
@@ -19,7 +29,7 @@ function KeyDataCardsContainer({ calorieCount, proteinCount, carbohydrateCount, 
     )
 }
 
-KeyDataCardsContainer.prototypes = {
+KeyDataCardsContainer.proptypes = {
     calorieCount: PropTypes.number.isRequired,
     proteinCount: PropTypes.number.isRequired,
     carbohydrateCount: PropTypes.number.isRequired,

@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 import { PieChart, Pie, ResponsiveContainer } from 'recharts';
 import classes from '/src/styles/Score.module.css'
 
+/**
+ * Le composant Score affiche un PieChart utilisant la bibliothèque Recharts pour représenter le score d'aujourd'hui.
+ * @param {number} todayScore - Le score d'aujourd'hui, représenté par un nombre entre 0 et 1.
+ * @returns {JSX.Element} La représentation JSX du composant Score.
+ */
+
 function Score({todayScore}) {
 
     let scoreData = {};
@@ -44,7 +50,7 @@ function Score({todayScore}) {
     );
 }
 
-Score.prototypes = {
+Score.proptypes = {
     todayScore: PropTypes.number.isRequired
 }
 

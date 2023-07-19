@@ -3,6 +3,19 @@ import PropTypes from 'prop-types';
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
 import classes from '/src/styles/DailyActivity.module.css'
 
+/**
+ * Composant de graphique d'activité quotidienne affichant le poids et les calories brûlées.
+ * Ce composant utilise la bibliothèque React et Recharts.
+ *
+ * @param {Array.<Object>} sessions - Les données des sessions à afficher.
+ * @param {number} sessions[].day - Le jour de la semaine (sous forme numérique).
+ * @param {number} sessions[].kilogram - Le poids en kilogrammes.
+ * @param {number} sessions[].calories - Le nombre de calories brûlées (kCal).
+ * @returns {JSX.Element|null} - Un élément React représentant le graphique d'activité quotidienne
+ *                             affichant le poids et les calories brûlées, ou null si les données
+ *                             des sessions sont inexistantes.
+ */
+
 function DailyActivity({ sessions }) {
 
     let smallestWeight = 0;
@@ -72,8 +85,16 @@ function DailyActivity({ sessions }) {
     )
 }
 
-DailyActivity.prototypes = {
-    sessions: PropTypes.array.isRequired
+DailyActivity.proptypes = {
+    sessions: PropTypes.arrayOf(
+        PropTypes.shape(
+            {
+                day: PropTypes.number.isRequired,
+                kilogram: PropTypes.number.isRequired,
+                calories: PropTypes.number.isRequired,
+            }
+        )
+    ).isRequired
 }
 
 export default DailyActivity;

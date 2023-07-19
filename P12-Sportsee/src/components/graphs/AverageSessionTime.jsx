@@ -3,6 +3,16 @@ import PropTypes from 'prop-types';
 import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area, YAxis } from 'recharts';
 import classes from '/src/styles/AverageSessionTime.module.css';
 
+/**
+ * Composant de graphique d'évolution de la durée moyenne des sessions.
+ * Ce composant utilise la bibliothèque React et Recharts.
+ *  
+ * @param {Array.<Object>} sessions - Les données des sessions à afficher.
+ * @param {number} sessions[].day - Le jour de la semaine (1 pour Lundi, 2 pour Mardi, ..., 7 pour Dimanche).
+ * @param {number} sessions[].sessionLength - La durée moyenne de la session en minutes.
+ * @returns {JSX.Element} Un élément React représentant le graphique d'évolution de la durée moyenne des sessions.
+ */
+
 function AverageSessionTime({ sessions }) {
 
     const xAxisTickFormatter = (value) => {
@@ -41,7 +51,7 @@ function AverageSessionTime({ sessions }) {
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{ fill: '#FFF', opacity: '50%' }} axisLine={false} tickLine={false} />
                     <Tooltip content={customTooltip} cursor={{ strokeOpacity: '0' }} />
                     <Legend iconSize={0} verticalAlign="top" formatter={renderLegendText} />
-                    <Area type='natural' dataKey='sessionLength' stroke='url(#lineGradient)' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
+                    <Area type='basis' dataKey='sessionLength' stroke='url(#lineGradient)' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
                     <defs>
                         <linearGradient id="lineGradient" x1="0" y1="0" x2="1" y2="0">
                             <stop offset="0%" stopColor="#FFF" stopOpacity={0.4} />
@@ -53,8 +63,13 @@ function AverageSessionTime({ sessions }) {
         </div>
     );
 }
-AverageSessionTime.prototypes = {
-    sessions: PropTypes.array.isRequired
+AverageSessionTime.proptypes = {
+    sessions: PropTypes.arrayOf(
+        PropTypes.shape({
+            day: PropTypes.number.isRequired,
+            sessionLength: PropTypes.number.isRequired,
+        })
+    ).isRequired
 }
 
 export default AverageSessionTime;
