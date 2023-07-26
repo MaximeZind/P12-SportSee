@@ -1,6 +1,17 @@
 import React from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
-import classes from '../styles/Error.module.css'
+import classes from '../styles/Error.module.css';
+
+/**
+ * Composant Error - Représente la page d'erreur 404 de l'application SportSee.
+ * 
+ * Ce composant affiche la page d'erreur 404 lorsque l'utilisateur accède à une URL inexistante.
+ * Il affiche un message d'erreur et un lien pour retourner à la page d'accueil.
+ * Le titre de la page est mis à jour avec "SportSee - Error 404".
+ * 
+ * @module Error
+ * @returns {JSX.Element} Élément JSX représentant la page d'erreur 404.
+ */
 
 
 function Error() {
