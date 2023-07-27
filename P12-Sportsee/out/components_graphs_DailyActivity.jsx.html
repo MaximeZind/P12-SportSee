@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/graphs/DailyActivity.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/graphs/DailyActivity.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from 'prop-types';
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar, ResponsiveContainer } from 'recharts';
+import classes from '/src/styles/DailyActivity.module.css'
+
+/**
+ * Composant de graphique d'activité quotidienne affichant le poids et les calories brûlées.
+ * Ce composant utilise la bibliothèque React et Recharts.
+ *
+ * @param {Array.&lt;Object>} sessions - Les données des sessions à afficher.
+ * @param {number} sessions[].day - Le jour de la semaine (sous forme numérique).
+ * @param {number} sessions[].kilogram - Le poids en kilogrammes.
+ * @param {number} sessions[].calories - Le nombre de calories brûlées (kCal).
+ * @returns {JSX.Element|null} - Un élément React représentant le graphique d'activité quotidienne
+ *                             affichant le poids et les calories brûlées, ou null si les données
+ *                             des sessions sont inexistantes.
+ */
+
+function DailyActivity({ sessions }) {
+
+    let smallestWeight = 0;
+    let biggestWeight = 0;
+    if (sessions) {
+        smallestWeight = sessions[0].kilogram;
+        sessions.map((session) => {
+            if (session.kilogram &lt; smallestWeight) {
+                smallestWeight = session.kilogram;
+            }
+            if (session.kilogram > biggestWeight) {
+                biggestWeight = session.kilogram;
+            }
+        });
+        sessions = sessions.map((session) => {
+            session.day = session.day.length > 1 ? parseInt(session.day[session.day.length-2]+session.day[session.day.length-1]) : session.day;
+            return session;
+        });
+    }
+    const weightDomain = [smallestWeight - 1, biggestWeight + 1];
+
+    const tooltipStyle = {
+        backgroundColor: '#E60000',
+        color: '#fff',
+        border: 'none',
+        fontSize: '0.625rem',
+        padding: '10px'
+    };
+
+    const customTooltip = ({ active, payload }) => {
+        if (active &amp;&amp; payload) {
+            return (
+                &lt;div className={classes.custom_tooltip} style={tooltipStyle}>
+                    &lt;p style={{marginBottom: '30px'}}>{`${payload[0].value}kg`}&lt;/p>
+                    &lt;p>{`${payload[1].value}Kcal`}&lt;/p>
+                &lt;/div>
+            );
+        }
+    }
+
+    const labelStyle = {
+        display: "none"
+    }
+
+    return (
+        sessions &amp;&amp;
+        &lt;div className={classes.daily_activity_chart}>
+            &lt;header className={classes.daily_activity_chart_header}>
+                &lt;h2>Activité quotidienne&lt;/h2>
+                &lt;div className={classes.daily_activity_chart_header_legend}>
+                    &lt;p className={classes.weight}>Poids (kg)&lt;/p>
+                    &lt;p className={classes.calories}>Calories brûlées (kCal)&lt;/p>
+                &lt;/div>
+            &lt;/header>
+            &lt;ResponsiveContainer width='100%' height='90%'>
+                &lt;BarChart data={sessions} >
+                    &lt;CartesianGrid strokeDasharray="2 2" vertical={false}/>
+                    &lt;XAxis dataKey='day' tickLine={false} axisLine={false} />
+                    &lt;YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' tickLine={false} axisLine={false} />
+                    &lt;YAxis yAxisId="right" hide={true}/>
+                    &lt;Tooltip cursor={{opacity:'0.5'}} content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
+                    &lt;Bar yAxisId="left" dataKey="kilogram" fill="#282D30" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='kg' />
+                    &lt;Bar yAxisId="right" dataKey="calories" fill="#E60000" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='Kcal' />
+                &lt;/BarChart>
+            &lt;/ResponsiveContainer>
+        &lt;/div>
+    )
+}
+
+DailyActivity.proptypes = {
+    sessions: PropTypes.arrayOf(
+        PropTypes.shape(
+            {
+                day: PropTypes.number.isRequired,
+                kilogram: PropTypes.number.isRequired,
+                calories: PropTypes.number.isRequired,
+            }
+        )
+    ).isRequired
+}
+
+export default DailyActivity;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Dashboard.html">Dashboard</a></li><li><a href="module-Error.html">Error</a></li><li><a href="module-Home.html">Home</a></li><li><a href="module-index.html">index</a></li></ul><h3>Classes</h3><ul><li><a href="UserModel.html">UserModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AverageSessionTime">AverageSessionTime</a></li><li><a href="global.html#DailyActivity">DailyActivity</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#Greetings">Greetings</a></li><li><a href="global.html#KeyDataCard">KeyDataCard</a></li><li><a href="global.html#KeyDataCardsContainer">KeyDataCardsContainer</a></li><li><a href="global.html#Nav">Nav</a></li><li><a href="global.html#Performances">Performances</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SideMenu">SideMenu</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Jul 27 2023 18:29:31 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
