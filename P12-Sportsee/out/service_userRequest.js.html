@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: service/userRequest.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: service/userRequest.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import axios from 'axios';
+import UserModel from './Model/UserModel';
+
+// mocked data user 12
+import user12Infos from '/src/mockedData/users/12/userInfos.json';
+import user12AverageSessions from '/src/mockedData/users/12/userAverageSessions.json';
+import user12Activity from '/src/mockedData/users/12/userActivity.json';
+import user12Performance from '/src/mockedData/users/12/userPerformance.json';
+
+// mocked data user 18
+import user18Infos from '/src/mockedData/users/18/userInfos.json';
+import user18AverageSessions from '/src/mockedData/users/18/userAverageSessions.json';
+import user18Activity from '/src/mockedData/users/18/userActivity.json';
+import user18Performance from '/src/mockedData/users/18/userPerformance.json';
+
+/**
+ * Obtient les informations d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+ * @param {string} id - L'identifiant de l'utilisateur.
+ * @returns {Promise&lt;Object>} Une promesse résolvant l'objet contenant les informations de l'utilisateur.
+ */
+
+async function getUser(id) {
+  const dataSrc = localStorage.getItem('dataSrc');
+
+  if (dataSrc === 'api') {
+    const dataResponse = await axios.get(`http://localhost:3000/user/${id}`);
+    if (dataResponse.status === 200) {
+      return dataResponse.data.data;
+    }
+  } else if (dataSrc === 'mockedData') {
+    if (id === '12') {
+      return user12Infos.data;
+    } if (id === '18') {
+      return user18Infos.data;
+    }
+  }
+}
+
+/**
+ * Obtient l'activité d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+ * @param {string} id - L'identifiant de l'utilisateur.
+ * @returns {Promise&lt;Object>} Une promesse résolvant l'objet contenant l'activité de l'utilisateur.
+ */
+
+async function getUserActivity(id) {
+  const dataSrc = localStorage.getItem('dataSrc');
+
+  if (dataSrc === 'api') {
+    const dataResponse = await axios.get(`http://localhost:3000/user/${id}/activity`);
+    if (dataResponse.status === 200) {
+      return dataResponse.data.data;
+    }
+  } else if (dataSrc === 'mockedData') {
+    if (id === '12') {
+      return user12Activity.data;
+    } if (id === '18') {
+      return user18Activity.data;
+    }
+  }
+}
+
+/**
+ * Obtient les sessions moyennes d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+ * @param {string} id - L'identifiant de l'utilisateur.
+ * @returns {Promise&lt;Object>} Une promesse résolvant l'objet contenant les sessions moyennes de l'utilisateur.
+ */
+
+async function getUserAverageSessions(id) {
+  const dataSrc = localStorage.getItem('dataSrc');
+
+  if (dataSrc === 'api') {
+    const dataResponse = await axios.get(`http://localhost:3000/user/${id}/average-sessions`);
+    if (dataResponse.status === 200) {
+      return dataResponse.data.data;
+    }
+  } else if (dataSrc === 'mockedData') {
+    if (id === '12') {
+      return user12AverageSessions.data;
+    } if (id === '18') {
+      return user18AverageSessions.data;
+    }
+  }
+}
+
+/**
+ * Obtient les performances d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+ * @param {string} id - L'identifiant de l'utilisateur.
+ * @returns {Promise&lt;Object>} Une promesse résolvant l'objet contenant les performances de l'utilisateur.
+ */
+
+async function getUserPerformance(id) {
+  const dataSrc = localStorage.getItem('dataSrc');
+
+  if (dataSrc === 'api') {
+    const dataResponse = await axios.get(`http://localhost:3000/user/${id}/performance`);
+    if (dataResponse.status === 200) {
+      return dataResponse.data.data;
+    }
+  } else if (dataSrc === 'mockedData') {
+    if (id === '12') {
+      return user12Performance.data;
+    } if (id === '18') {
+      return user18Performance.data;
+    }
+  }
+}
+
+/**
+ * Obtient le profil complet d'un utilisateur en combinant les informations utilisateur, l'activité, les sessions moyennes et les performances.
+ * @param {string} userId - L'identifiant de l'utilisateur.
+ * @returns {Promise&lt;UserModel>} Une promesse résolvant l'objet UserModel contenant le profil complet de l'utilisateur.
+ */
+
+export default async function getProfile(userId) {
+  try {
+    const user = await getUser(userId);
+    const userActivity = await getUserActivity(userId);
+    const userAverageSessions = await getUserAverageSessions(userId);
+    const userPerformance = await getUserPerformance(userId);
+
+    // traduction des types de data et on combine les types avec les valeurs;
+    const PerformancesTranslation = {
+      cardio: 'Cardio',
+      energy: 'Energie',
+      endurance: 'Endurance',
+      strength: 'Force',
+      speed: 'Vitesse',
+      intensity: 'Intensité',
+    };
+    const combinedPerformances = userPerformance.data.map((obj) => ({
+      value: obj.value,
+      kind: PerformancesTranslation[userPerformance.kind[obj.kind]],
+    }));
+
+    // création d'une nouvelle itération de la classe userModel
+    const userModel = new UserModel(user, userActivity, userAverageSessions, combinedPerformances);
+
+    return userModel;
+  } catch (error) {
+    console.error(error);
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Dashboard.html">Dashboard</a></li><li><a href="module-Error.html">Error</a></li><li><a href="module-Home.html">Home</a></li><li><a href="module-index.html">index</a></li></ul><h3>Classes</h3><ul><li><a href="UserModel.html">UserModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AverageSessionTime">AverageSessionTime</a></li><li><a href="global.html#BaseLayout">BaseLayout</a></li><li><a href="global.html#DailyActivity">DailyActivity</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#Greetings">Greetings</a></li><li><a href="global.html#KeyDataCard">KeyDataCard</a></li><li><a href="global.html#KeyDataCardsContainer">KeyDataCardsContainer</a></li><li><a href="global.html#Nav">Nav</a></li><li><a href="global.html#Performances">Performances</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Jul 28 2023 17:23:31 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

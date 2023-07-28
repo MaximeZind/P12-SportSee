@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Greetings.jsx</title>
+    <title>JSDoc: Source: router/App.jsx</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Greetings.jsx</h1>
+    <h1 class="page-title">Source: router/App.jsx</h1>
 
     
 
@@ -27,33 +27,38 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import React from 'react';
-import PropTypes from 'prop-types';
-import classes from '../styles/Greetings.module.css';
+import Dashboard from '../pages/Dashboard.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import BaseLayout from './BaseLayout.jsx';
+import Home from '../pages/Home.jsx';
+import Error from '../pages/Error.jsx';
 
 /**
- * Le composant Greetings affiche un message de salutation personnalisé et une félicitation si le prénom de l'utilisateur est fourni.
- * @param {string} firstName - Le prénom de l'utilisateur.
- * @returns {JSX.Element} La représentation JSX du composant Greetings.
+ * Composant App - Le composant racine de l'application.
+ * Gère le routage à l'aide de react-router-dom pour afficher différentes pages.
+ * @returns {JSX.Element} La représentation JSX du composant App.
  */
 
-function Greetings({ firstName }) {
+
+function App() {
+
     return (
-        &lt;div className={classes.greetings}>
-            &lt;div className={classes.greetings_title}>
-                &lt;h2 className={classes.greetings_title_bonjour}>Bonjour &lt;/h2>
-                {firstName &amp;&amp; &lt;h2 className={classes.greetings_title_name}>{firstName}&lt;/h2>}
-            &lt;/div>
-            {firstName &amp;&amp; &lt;p>Félicitation ! Vous avez explosé vos objectifs hier 👏&lt;/p>}
-        &lt;/div>
+        &lt;React.Fragment>
+            &lt;BrowserRouter>
+                &lt;Routes>
+                    &lt;Route path='/dashboard' element={&lt;BaseLayout />} >
+                        &lt;Route path="/dashboard/:id/" element={&lt;Dashboard />} />
+                    &lt;/Route>
+                    &lt;Route path="/*" element={&lt;Error />} />
+                    &lt;Route path='/' element={&lt;Home />} />
+                &lt;/Routes>
+            &lt;/BrowserRouter>
+        &lt;/React.Fragment>
     )
 }
 
-Greetings.proptypes = {
-    firstName: PropTypes.string.isRequired
-}
 
-export default Greetings;
-</code></pre>
+export default App;</code></pre>
         </article>
     </section>
 

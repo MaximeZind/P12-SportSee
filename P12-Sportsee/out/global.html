@@ -104,6 +104,116 @@
     
 
     
+    <h4 class="name" id="App"><span class="type-signature"></span>App<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Composant App - Le composant racine de l'application.Gère le routage à l'aide de react-router-dom pour afficher différentes pages.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router_App.jsx.html">router/App.jsx</a>, <a href="router_App.jsx.html#line15">line 15</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    La représentation JSX du composant App.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="AverageSessionTime"><span class="type-signature"></span>AverageSessionTime<span class="signature">(sessions)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
     
 
@@ -307,6 +417,116 @@
         
 <div class="param-desc">
     Un élément React représentant le graphique d'évolution de la durée moyenne des sessions.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="BaseLayout"><span class="type-signature"></span>BaseLayout<span class="signature">()</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Composant BaseLayout - Affiche la mise en page de base de l'application avec la barre de navigation, le menu latéral et le contenu de la page enfant (Outlet).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="router_BaseLayout.jsx.html">router/BaseLayout.jsx</a>, <a href="router_BaseLayout.jsx.html#line12">line 12</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    La représentation JSX du composant BaseLayout.
 </div>
 
 
@@ -1945,6 +2165,642 @@
 
 
         
+            
+
+    
+
+    
+    <h4 class="name" id="getUser"><span class="type-signature">(async) </span>getUser<span class="signature">(id)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Obtient les informations d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">L'identifiant de l'utilisateur.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="service_userRequest.js.html">service/userRequest.js</a>, <a href="service_userRequest.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Une promesse résolvant l'objet contenant les informations de l'utilisateur.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserActivity"><span class="type-signature">(async) </span>getUserActivity<span class="signature">(id)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Obtient l'activité d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">L'identifiant de l'utilisateur.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="service_userRequest.js.html">service/userRequest.js</a>, <a href="service_userRequest.js.html#line45">line 45</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Une promesse résolvant l'objet contenant l'activité de l'utilisateur.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserAverageSessions"><span class="type-signature">(async) </span>getUserAverageSessions<span class="signature">(id)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Obtient les sessions moyennes d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">L'identifiant de l'utilisateur.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="service_userRequest.js.html">service/userRequest.js</a>, <a href="service_userRequest.js.html#line68">line 68</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Une promesse résolvant l'objet contenant les sessions moyennes de l'utilisateur.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getUserPerformance"><span class="type-signature">(async) </span>getUserPerformance<span class="signature">(id)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Obtient les performances d'un utilisateur à partir de la source de données spécifiée (API ou données simulées).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">L'identifiant de l'utilisateur.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="service_userRequest.js.html">service/userRequest.js</a>, <a href="service_userRequest.js.html#line91">line 91</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Une promesse résolvant l'objet contenant les performances de l'utilisateur.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     
@@ -1960,13 +2816,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Dashboard.html">Dashboard</a></li><li><a href="module-Error.html">Error</a></li><li><a href="module-Home.html">Home</a></li><li><a href="module-index.html">index</a></li></ul><h3>Classes</h3><ul><li><a href="UserModel.html">UserModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#AverageSessionTime">AverageSessionTime</a></li><li><a href="global.html#DailyActivity">DailyActivity</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#Greetings">Greetings</a></li><li><a href="global.html#KeyDataCard">KeyDataCard</a></li><li><a href="global.html#KeyDataCardsContainer">KeyDataCardsContainer</a></li><li><a href="global.html#Nav">Nav</a></li><li><a href="global.html#Performances">Performances</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SideMenu">SideMenu</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-Dashboard.html">Dashboard</a></li><li><a href="module-Error.html">Error</a></li><li><a href="module-Home.html">Home</a></li><li><a href="module-index.html">index</a></li></ul><h3>Classes</h3><ul><li><a href="UserModel.html">UserModel</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#AverageSessionTime">AverageSessionTime</a></li><li><a href="global.html#BaseLayout">BaseLayout</a></li><li><a href="global.html#DailyActivity">DailyActivity</a></li><li><a href="global.html#Form">Form</a></li><li><a href="global.html#Greetings">Greetings</a></li><li><a href="global.html#KeyDataCard">KeyDataCard</a></li><li><a href="global.html#KeyDataCardsContainer">KeyDataCardsContainer</a></li><li><a href="global.html#Nav">Nav</a></li><li><a href="global.html#Performances">Performances</a></li><li><a href="global.html#Score">Score</a></li><li><a href="global.html#SideMenu">SideMenu</a></li><li><a href="global.html#getUser">getUser</a></li><li><a href="global.html#getUserActivity">getUserActivity</a></li><li><a href="global.html#getUserAverageSessions">getUserAverageSessions</a></li><li><a href="global.html#getUserPerformance">getUserPerformance</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Thu Jul 27 2023 18:29:32 GMT+0200 (Central European Summer Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Jul 28 2023 17:23:31 GMT+0200 (Central European Summer Time)
 </footer>
 
 <script> prettyPrint(); </script>
