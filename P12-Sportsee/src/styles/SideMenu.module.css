@@ -19,7 +19,7 @@
 
 .sidemenu_copyright p{
     position: absolute;
-    bottom: 120px;
+    bottom: 110px;
     font-size: 0.75rem;
     color: var(--secondary-color);
     transform: rotate(-90deg);
