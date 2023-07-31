@@ -8,7 +8,6 @@ import App from './router/App';
  * {@tutorial src/README.md}
  *
  * @module index
- * @see {@link https://link-to-your-source-code.com}
  */
 
 /**
