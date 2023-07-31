@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area, YAxis } from 'recharts';
+import { AreaChart, XAxis, Tooltip, Legend, ResponsiveContainer, Area, Rectangle } from 'recharts';
 import classes from '/src/styles/AverageSessionTime.module.css';
+import { useState, useRef } from 'react';
 
 /**
  * Composant de graphique d'évolution de la durée moyenne des sessions.
@@ -14,6 +15,10 @@ import classes from '/src/styles/AverageSessionTime.module.css';
  */
 
 function AverageSessionTime({ sessions }) {
+
+    const [rectangleWidth, setRectangleWidth] = useState(0);
+    const [showRectangle, setShowRectangle] = useState(false);
+    const containerRef = useRef(null);
 
     const xAxisTickFormatter = (value) => {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
@@ -44,12 +49,37 @@ function AverageSessionTime({ sessions }) {
         }
     }
 
+    const handleMouseMove = (e) => {
+        if (e && e.chartX !== undefined && e.activeLabel !== undefined) {
+            const cursorX = e.chartX;
+            const chartWidth = containerRef.current.current.clientWidth;
+            const offSetRight = chartWidth - cursorX;
+            setRectangleWidth(offSetRight);
+            setShowRectangle(true);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setShowRectangle(false);
+    };
+
+    const rectangleStyle = {
+        position: 'absolute',
+        top: '0',
+        right: '0',
+        width: rectangleWidth,
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.05)', 
+        zIndex: '999',
+        pointerEvents: 'none', 
+    }
+
     return (
-        <div className={classes.average_session_time_chart}>
-            <ResponsiveContainer width='100%' height='100%'>
-                <AreaChart data={sessions} style={{ backgroundColor: '#FF0000' }} >
+        <div className={classes.average_session_time_chart} style={{ position: 'relative' }}>
+            <ResponsiveContainer width='100%' height='100%' ref={containerRef}>
+                <AreaChart data={sessions} style={{ backgroundColor: '#FF0000' }} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} >
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{ fill: '#FFF', opacity: '50%' }} axisLine={false} tickLine={false} />
-                    <Tooltip content={customTooltip} cursor={{ strokeOpacity: '0' }} />
+                    <Tooltip content={customTooltip} cursor={<Rectangle />} />
                     <Legend iconSize={0} verticalAlign="top" formatter={renderLegendText} />
                     <Area type='basis' dataKey='sessionLength' stroke='url(#lineGradient)' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
                     <defs>
@@ -60,6 +90,11 @@ function AverageSessionTime({ sessions }) {
                     </defs>
                 </AreaChart >
             </ResponsiveContainer>
+            {showRectangle && (
+                <div
+                    style={rectangleStyle}
+                />
+            )}
         </div>
     );
 }
