@@ -112,7 +112,7 @@ async function getUserPerformance(id) {
  */
 
 export default async function getProfile(userId) {
-  try {
+
     const user = await getUser(userId);
     const userActivity = await getUserActivity(userId);
     const userAverageSessions = await getUserAverageSessions(userId);
@@ -136,7 +136,4 @@ export default async function getProfile(userId) {
     const userModel = new UserModel(user, userActivity, userAverageSessions, combinedPerformances);
 
     return userModel;
-  } catch (error) {
-    console.error(error);
-  }
 }
