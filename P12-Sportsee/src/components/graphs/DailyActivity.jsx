@@ -8,7 +8,7 @@ import classes from '/src/styles/DailyActivity.module.css'
  * Ce composant utilise la bibliothèque React et Recharts.
  *
  * @param {Array.<Object>} sessions - Les données des sessions à afficher.
- * @param {number} sessions[].day - Le jour de la semaine (sous forme numérique).
+ * @param {string} sessions[].day - Le jour (sous forme YYYY-MM-JJ).
  * @param {number} sessions[].kilogram - Le poids en kilogrammes.
  * @param {number} sessions[].calories - Le nombre de calories brûlées (kCal).
  * @returns {JSX.Element|null} - Un élément React représentant le graphique d'activité quotidienne
@@ -17,25 +17,30 @@ import classes from '/src/styles/DailyActivity.module.css'
 
 function DailyActivity({ sessions }) {
 
+    console.log(typeof(sessions[0].day));
+
     let smallestWeight = 0;
     let biggestWeight = 0;
-    if (sessions) {
-        smallestWeight = sessions[0].kilogram;
-        sessions.map((session) => {
-            //On définit les poids max et min
-            if (session.kilogram < smallestWeight) {
-                smallestWeight = session.kilogram;
-            }
-            if (session.kilogram > biggestWeight) {
-                biggestWeight = session.kilogram;
-            }
-        });
-        //On récupère le jour du mois (qu'il soit de 1 ou 2 chiffres)
-        sessions = sessions.map((session) => {
-            session.day = session.day.length > 1 ? parseInt(session.day[session.day.length-2]+session.day[session.day.length-1]) : session.day;
-            return session;
-        });
-    }
+
+    //copie de sessions sans référence
+    let updatedSessions = JSON.parse(JSON.stringify(sessions));
+
+    smallestWeight = updatedSessions[0].kilogram;
+    updatedSessions.map((session) => {
+        //On définit les poids max et min
+        if (session.kilogram < smallestWeight) {
+            smallestWeight = session.kilogram;
+        }
+        if (session.kilogram > biggestWeight) {
+            biggestWeight = session.kilogram;
+        }
+    });
+    //On récupère le jour du mois (qu'il soit de 1 ou 2 chiffres)
+    updatedSessions = updatedSessions.map((session) => {
+        session.day = session.day.length > 1 ? parseInt(session.day[session.day.length - 2] + session.day[session.day.length - 1]) : session.day;
+        return session;
+    });
+
     const weightDomain = [smallestWeight - 1, biggestWeight + 1];
 
     const tooltipStyle = {
@@ -50,7 +55,7 @@ function DailyActivity({ sessions }) {
         if (active && payload) {
             return (
                 <div className={classes.custom_tooltip} style={tooltipStyle}>
-                    <p style={{marginBottom: '30px'}}>{`${payload[0].value}kg`}</p>
+                    <p style={{ marginBottom: '30px' }}>{`${payload[0].value}kg`}</p>
                     <p>{`${payload[1].value}Kcal`}</p>
                 </div>
             );
@@ -71,12 +76,12 @@ function DailyActivity({ sessions }) {
                 </div>
             </header>
             <ResponsiveContainer width='100%' height='90%'>
-                <BarChart data={sessions} >
-                    <CartesianGrid strokeDasharray="2 2" vertical={false}/>
+                <BarChart data={updatedSessions} >
+                    <CartesianGrid strokeDasharray="2 2" vertical={false} />
                     <XAxis dataKey='day' tickLine={false} axisLine={false} />
                     <YAxis dataKey='kilogram' yAxisId="left" allowDecimals={false} domain={weightDomain} orientation='right' tickLine={false} axisLine={false} />
-                    <YAxis yAxisId="right" hide={true}/>
-                    <Tooltip cursor={{opacity:'0.5'}} content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
+                    <YAxis yAxisId="right" hide={true} />
+                    <Tooltip cursor={{ opacity: '0.5' }} content={customTooltip} labelStyle={labelStyle} itemStyle={tooltipStyle} />
                     <Bar yAxisId="left" dataKey="kilogram" fill="#282D30" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='kg' />
                     <Bar yAxisId="right" dataKey="calories" fill="#E60000" stroke='#979797' barSize={7} radius={[3, 3, 0, 0]} unit='Kcal' />
                 </BarChart>
@@ -89,7 +94,7 @@ DailyActivity.propTypes = {
     sessions: PropTypes.arrayOf(
         PropTypes.shape(
             {
-                day: PropTypes.number.isRequired,
+                day: PropTypes.string.isRequired,
                 kilogram: PropTypes.number.isRequired,
                 calories: PropTypes.number.isRequired,
             }
