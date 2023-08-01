@@ -17,8 +17,6 @@ import classes from '/src/styles/DailyActivity.module.css'
 
 function DailyActivity({ sessions }) {
 
-    console.log(typeof(sessions[0].day));
-
     let smallestWeight = 0;
     let biggestWeight = 0;
 
