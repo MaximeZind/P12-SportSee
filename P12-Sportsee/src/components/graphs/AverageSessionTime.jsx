@@ -20,6 +20,7 @@ function AverageSessionTime({ sessions }) {
     const [showRectangle, setShowRectangle] = useState(false);
     const containerRef = useRef(null);
 
+    //Fonction pour remplacer 1,2,...7 par les lettres
     const xAxisTickFormatter = (value) => {
         const days = ['L', 'M', 'M', 'J', 'V', 'S', 'D'];
         return days[value - 1];
@@ -49,12 +50,13 @@ function AverageSessionTime({ sessions }) {
         }
     }
 
+    //Fonction qui crée une zone grisée lors du passage de la souris
     const handleMouseMove = (e) => {
         if (e && e.chartX !== undefined && e.activeLabel !== undefined) {
             const cursorX = e.chartX;
             const chartWidth = containerRef.current.current.clientWidth;
-            const offSetRight = chartWidth - cursorX;
-            setRectangleWidth(offSetRight);
+            const width = chartWidth - cursorX;
+            setRectangleWidth(width);
             setShowRectangle(true);
         }
     };
@@ -79,7 +81,7 @@ function AverageSessionTime({ sessions }) {
             <ResponsiveContainer width='100%' height='100%' ref={containerRef}>
                 <AreaChart data={sessions} style={{ backgroundColor: '#FF0000' }} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} >
                     <XAxis dataKey='day' tickFormatter={xAxisTickFormatter} tick={{ fill: '#FFF', opacity: '50%' }} axisLine={false} tickLine={false} />
-                    <Tooltip content={customTooltip} cursor={<Rectangle />} />
+                    <Tooltip content={customTooltip} cursor={{opacity: '0'}} />
                     <Legend iconSize={0} verticalAlign="top" formatter={renderLegendText} />
                     <Area type='basis' dataKey='sessionLength' stroke='url(#lineGradient)' unit=' min' fill='#FFF' fillOpacity={0.05} strokeWidth={2}></Area>
                     <defs>
