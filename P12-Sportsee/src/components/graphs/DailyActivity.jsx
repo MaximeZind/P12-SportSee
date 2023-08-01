@@ -12,8 +12,7 @@ import classes from '/src/styles/DailyActivity.module.css'
  * @param {number} sessions[].kilogram - Le poids en kilogrammes.
  * @param {number} sessions[].calories - Le nombre de calories brûlées (kCal).
  * @returns {JSX.Element|null} - Un élément React représentant le graphique d'activité quotidienne
- *                             affichant le poids et les calories brûlées, ou null si les données
- *                             des sessions sont inexistantes.
+ *                             affichant le poids et les calories brûlées
  */
 
 function DailyActivity({ sessions }) {
@@ -23,6 +22,7 @@ function DailyActivity({ sessions }) {
     if (sessions) {
         smallestWeight = sessions[0].kilogram;
         sessions.map((session) => {
+            //On définit les poids max et min
             if (session.kilogram < smallestWeight) {
                 smallestWeight = session.kilogram;
             }
@@ -30,6 +30,7 @@ function DailyActivity({ sessions }) {
                 biggestWeight = session.kilogram;
             }
         });
+        //On récupère le jour du mois (qu'il soit de 1 ou 2 chiffres)
         sessions = sessions.map((session) => {
             session.day = session.day.length > 1 ? parseInt(session.day[session.day.length-2]+session.day[session.day.length-1]) : session.day;
             return session;
@@ -61,7 +62,6 @@ function DailyActivity({ sessions }) {
     }
 
     return (
-        sessions &&
         <div className={classes.daily_activity_chart}>
             <header className={classes.daily_activity_chart_header}>
                 <h2>Activité quotidienne</h2>
