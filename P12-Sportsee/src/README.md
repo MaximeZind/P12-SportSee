@@ -8,7 +8,7 @@ To start this project, you will need the backend to be running. All the instruct
 
 ## 2. Project
 
-### 2.1 Prerequisites
+### 2.1 Prerequisites "prop-types": "^15.8.1",
 
 - [NodeJS (**version v20.0.0 or higher**)](https://nodejs.org/en/)
 - [npm (**v9.6.4 or higher**)](https://www.npmjs.com/)
@@ -18,6 +18,7 @@ To start this project, you will need the backend to be running. All the instruct
 - [react (**version ^18.2.0 or higher**)](https://react.dev/)
 - [react-router-dom (**version ^6.11.2 or higher**)](https://reactrouter.com/en/main)
 - [recharts (**version 2.6.2 or higher**)](https://recharts.org/en-US)
+- [prop-types (**version ^15.8.1 or higher**)](https://www.npmjs.com/package/prop-types)
 
 ### 2.2 Launching the project
 
