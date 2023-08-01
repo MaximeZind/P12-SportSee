@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Greetings from '../components/Greetings';
 import DailyActivity from '../components/graphs/DailyActivity';
 import AverageSessionTime from '../components/graphs/AverageSessionTime';
@@ -26,33 +26,34 @@ import getProfile from '../service/userRequest';
 
 function Dashboard() {
 
+  const navigate = useNavigate();
   const [userModel, setUserModel] = useState(null);
   //récupération de l'id de l'url
-  const {id} = useParams();
-  
+  const { id } = useParams();
+
   //titre de la page
   const pageTitle = 'Dashboard';
   document.title = `SportSee - ${pageTitle}`;
 
 
-  // const userModel = getProfile(id)
+  //récupération du userModel
   useEffect(() => {
     getProfile(id)
-    .then((model) => setUserModel(model))
-    .catch((err) => console.log(err));
+      .then((model) => {
+        setUserModel(model)
+      })
+      .catch((err) => {
+        console.log(err);
+        return navigate('/404');
+      });
   }, [id]);
-
-  //redirection vers la page d'erreur, si l'id ne correspond à aucun user
-  if(userModel === undefined){
-    return <Navigate to={'/404'} />
-  }
 
   return (
     userModel &&
     <div className={classes.dashboard}>
       < Greetings firstName={userModel.firstName} />
       <section className={classes.dashboard_graphs} >
-        < DailyActivity sessions={userModel.dailyActivity}/>
+        < DailyActivity sessions={userModel.dailyActivity} />
         < AverageSessionTime sessions={userModel.sessionLength} />
         < Performances performances={userModel.performances} />
         < Score todayScore={userModel.score} />
