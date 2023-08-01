@@ -20,7 +20,7 @@ function Greetings({ firstName }) {
     )
 }
 
-Greetings.proptypes = {
+Greetings.propTypes = {
     firstName: PropTypes.string.isRequired
 }
 

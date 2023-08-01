@@ -100,7 +100,7 @@ function AverageSessionTime({ sessions }) {
         </div>
     );
 }
-AverageSessionTime.proptypes = {
+AverageSessionTime.propTypes = {
     sessions: PropTypes.arrayOf(
         PropTypes.shape({
             day: PropTypes.number.isRequired,

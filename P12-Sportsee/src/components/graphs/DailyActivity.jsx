@@ -85,7 +85,7 @@ function DailyActivity({ sessions }) {
     )
 }
 
-DailyActivity.proptypes = {
+DailyActivity.propTypes = {
     sessions: PropTypes.arrayOf(
         PropTypes.shape(
             {

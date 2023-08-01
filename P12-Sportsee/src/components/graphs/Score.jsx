@@ -50,7 +50,7 @@ function Score({todayScore}) {
     );
 }
 
-Score.proptypes = {
+Score.propTypes = {
     todayScore: PropTypes.number.isRequired
 }
 

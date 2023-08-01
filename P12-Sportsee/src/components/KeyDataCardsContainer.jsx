@@ -29,7 +29,7 @@ function KeyDataCardsContainer({ calorieCount, proteinCount, carbohydrateCount, 
     )
 }
 
-KeyDataCardsContainer.proptypes = {
+KeyDataCardsContainer.propTypes = {
     calorieCount: PropTypes.number.isRequired,
     proteinCount: PropTypes.number.isRequired,
     carbohydrateCount: PropTypes.number.isRequired,

@@ -4,7 +4,7 @@ import classes from '../styles/KeyDataCard.module.css';
 
 /**
  * Composant KeyDataCard - Affiche une carte contenant des données clés.
- * @param {string} count - La valeur numérique à afficher.
+ * @param {number} count - La valeur numérique à afficher.
  * @param {string} unit - L'unité de mesure associée à la valeur.
  * @param {string} type - Le type ou la description de la donnée.
  * @param {string} color - La couleur d'arrière-plan de l'icône.
@@ -14,6 +14,7 @@ import classes from '../styles/KeyDataCard.module.css';
 
 
 function KeyDataCard({count, unit, type, color, icon}) {
+
     return (
         <div className={classes.keydata_card}>
             <div className={classes.keydata_card_icon} style={{backgroundColor: color}}>
@@ -27,8 +28,8 @@ function KeyDataCard({count, unit, type, color, icon}) {
     )
 }
 
-KeyDataCard.prototypes = {
-    count: PropTypes.string.isRequired,
+KeyDataCard.propTypes = {
+    count: PropTypes.number.isRequired,
     unit: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
