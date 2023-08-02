@@ -8,7 +8,7 @@ To start this project, you will need the backend to be running. All the instruct
 
 ## 2. Project
 
-### 2.1 Prerequisites "prop-types": "^15.8.1",
+### 2.1 Prerequisites
 
 - [NodeJS (**version v20.0.0 or higher**)](https://nodejs.org/en/)
 - [npm (**v9.6.4 or higher**)](https://www.npmjs.com/)
@@ -22,9 +22,15 @@ To start this project, you will need the backend to be running. All the instruct
 
 ### 2.2 Launching the project
 
-- Fork the repository
-- Clone it on your computer
+- Fork the repository:
+    Navigate to https://github.com/MaximeZind/P12-SportSee 
+    Click on fork -> create a new fork. You will need to be logged into a github account for this
+- Clone it on your computer:
+    Open a new terminal
+    Navigate to the directory using the command: `cd ~/Your/Projects` (replace the location by the one you want to use on your PC)
+    Clone the repo by using the command `git clone https://github.com/your-username/forked-repository.git` (replace the url by the repository)
 - Launch the back end by following the instructions in the README.md in the backend folder of this project (P12-back-end/README.md)
 - Open a new terminal
-- Navigate to the front-end folder with the command `cd P12-Sportsee`
+- Navigate to the front-end folder in your terminal with the command `cd P12-Sportsee`
+- Install the dependencies with the command `npm i`
 - The command `npm run dev` will launch the front end app
