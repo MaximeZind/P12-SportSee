@@ -46,7 +46,7 @@ function Dashboard() {
         console.log(err);
         return navigate('/404');
       });
-  }, [id]);
+  }, []);
 
   return (
     userModel &&
