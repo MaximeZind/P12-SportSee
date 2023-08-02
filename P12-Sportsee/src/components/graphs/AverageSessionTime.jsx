@@ -71,7 +71,7 @@ function AverageSessionTime({ sessions }) {
         right: '0',
         width: rectangleWidth,
         height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.05)', 
+        backgroundColor: 'rgba(0, 0, 0, 0.15)', 
         zIndex: '999',
         pointerEvents: 'none', 
     }
